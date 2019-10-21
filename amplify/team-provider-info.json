@@ -1,0 +1,14 @@
+{
+    "master": {
+        "awscloudformation": {
+            "AuthRoleName": "woodside-master-20191021111927-authRole",
+            "UnauthRoleArn": "arn:aws:iam::840692999077:role/woodside-master-20191021111927-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::840692999077:role/woodside-master-20191021111927-authRole",
+            "Region": "eu-west-1",
+            "DeploymentBucketName": "woodside-master-20191021111927-deployment",
+            "UnauthRoleName": "woodside-master-20191021111927-unauthRole",
+            "StackName": "woodside-master-20191021111927",
+            "StackId": "arn:aws:cloudformation:eu-west-1:840692999077:stack/woodside-master-20191021111927/e1a714e0-f3e3-11e9-afc7-0a736ea8438a"
+        }
+    }
+}
