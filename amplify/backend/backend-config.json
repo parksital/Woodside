@@ -1,1 +1,9 @@
-{}
+{
+	"auth": {
+		"woodside4ea1a53c": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": []
+		}
+	}
+}
