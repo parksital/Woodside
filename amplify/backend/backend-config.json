@@ -1,1 +1,27 @@
-{}
+{
+	"auth": {
+		"woodside4ea1a53c": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": []
+		}
+	},
+	"api": {
+		"woodsideAPI": {
+			"service": "AppSync",
+			"providerPlugin": "awscloudformation",
+			"output": {
+				"authConfig": {
+					"additionalAuthenticationProviders": [],
+					"defaultAuthentication": {
+						"authenticationType": "API_KEY",
+						"apiKeyConfig": {
+							"description": "awesome api key description",
+							"apiKeyExpirationDays": 180
+						}
+					}
+				}
+			}
+		}
+	}
+}
