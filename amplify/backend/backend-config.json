@@ -1,6 +1,6 @@
 {
 	"auth": {
-		"woodside4ea1a53c": {
+		"woodside2b5bf3c2": {
 			"service": "Cognito",
 			"providerPlugin": "awscloudformation",
 			"dependsOn": []
