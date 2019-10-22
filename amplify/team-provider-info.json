@@ -9,6 +9,11 @@
             "UnauthRoleName": "woodside-master-20191022121739-unauthRole",
             "StackName": "woodside-master-20191022121739",
             "StackId": "arn:aws:cloudformation:eu-west-1:840692999077:stack/woodside-master-20191022121739/2d75bee0-f4b5-11e9-9e57-0aaf98d2f8ea"
+        },
+        "categories": {
+            "auth": {
+                "woodside4ea1a53c": {}
+            }
         }
     },
     "develop": {
