@@ -26,6 +26,11 @@
             "UnauthRoleName": "woodside-develop-20191022122620-unauthRole",
             "StackName": "woodside-develop-20191022122620",
             "StackId": "arn:aws:cloudformation:eu-west-1:840692999077:stack/woodside-develop-20191022122620/644db430-f4b6-11e9-aad5-0a0c5b3ce4f4"
+        },
+        "categories": {
+            "auth": {
+                "woodside4ea1a53c": {}
+            }
         }
     }
 }
