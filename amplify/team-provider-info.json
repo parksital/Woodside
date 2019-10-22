@@ -15,5 +15,22 @@
                 "woodside4ea1a53c": {}
             }
         }
+    },
+    "develop": {
+        "awscloudformation": {
+            "AuthRoleName": "woodside-develop-20191022085158-authRole",
+            "UnauthRoleArn": "arn:aws:iam::840692999077:role/woodside-develop-20191022085158-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::840692999077:role/woodside-develop-20191022085158-authRole",
+            "Region": "eu-west-1",
+            "DeploymentBucketName": "woodside-develop-20191022085158-deployment",
+            "UnauthRoleName": "woodside-develop-20191022085158-unauthRole",
+            "StackName": "woodside-develop-20191022085158",
+            "StackId": "arn:aws:cloudformation:eu-west-1:840692999077:stack/woodside-develop-20191022085158/71759b50-f498-11e9-90e1-069dc79e2b34"
+        },
+        "categories": {
+            "auth": {
+                "woodside4ea1a53c": {}
+            }
+        }
     }
 }
