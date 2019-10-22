@@ -3,11 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		0692937213A4730254020554 /* Pods_WoodsideTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E47C56399D8B076AD7DE67E /* Pods_WoodsideTests.framework */; };
+		A062A090235F42C2002E5C5C /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = A062A08F235F42C2002E5C5C /* awsconfiguration.json */; };
+		A062A092235F42ED002E5C5C /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = A062A091235F42ED002E5C5C /* API.swift */; };
 		A0B81528235C6E69001C137B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B81527235C6E69001C137B /* AppDelegate.swift */; };
 		A0B8152A235C6E69001C137B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B81529235C6E69001C137B /* SceneDelegate.swift */; };
 		A0B8152C235C6E69001C137B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B8152B235C6E69001C137B /* ContentView.swift */; };
@@ -44,6 +46,8 @@
 		312B6B9F66164E271A0A80AD /* Pods-WoodsideTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WoodsideTests.debug.xcconfig"; path = "Target Support Files/Pods-WoodsideTests/Pods-WoodsideTests.debug.xcconfig"; sourceTree = "<group>"; };
 		3925D8470A31AB031EE13C75 /* Pods-Woodside.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Woodside.debug.xcconfig"; path = "Target Support Files/Pods-Woodside/Pods-Woodside.debug.xcconfig"; sourceTree = "<group>"; };
 		785F60C1FC32550DF03F8445 /* Pods-Woodside.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Woodside.release.xcconfig"; path = "Target Support Files/Pods-Woodside/Pods-Woodside.release.xcconfig"; sourceTree = "<group>"; };
+		A062A08F235F42C2002E5C5C /* awsconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = awsconfiguration.json; sourceTree = SOURCE_ROOT; };
+		A062A091235F42ED002E5C5C /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = SOURCE_ROOT; };
 		A0B81524235C6E69001C137B /* Woodside.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Woodside.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0B81527235C6E69001C137B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A0B81529235C6E69001C137B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -101,7 +105,6 @@
 				B0E26E6E4E5DD57FE6C29347 /* Pods-WoodsideUITests.debug.xcconfig */,
 				F15D0107356E0EBDFA1BC298 /* Pods-WoodsideUITests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -130,6 +133,8 @@
 		A0B81526235C6E69001C137B /* Woodside */ = {
 			isa = PBXGroup;
 			children = (
+				A062A091235F42ED002E5C5C /* API.swift */,
+				A062A08F235F42C2002E5C5C /* awsconfiguration.json */,
 				A0B81527235C6E69001C137B /* AppDelegate.swift */,
 				A0B81529235C6E69001C137B /* SceneDelegate.swift */,
 				A0B8152B235C6E69001C137B /* ContentView.swift */,
@@ -285,6 +290,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A062A090235F42C2002E5C5C /* awsconfiguration.json in Resources */,
 				A0B81534235C6E6A001C137B /* LaunchScreen.storyboard in Resources */,
 				A0B81531235C6E6A001C137B /* Preview Assets.xcassets in Resources */,
 				A0B8152E235C6E6A001C137B /* Assets.xcassets in Resources */,
@@ -400,6 +406,7 @@
 			files = (
 				A0B81528235C6E69001C137B /* AppDelegate.swift in Sources */,
 				A0B8152A235C6E69001C137B /* SceneDelegate.swift in Sources */,
+				A062A092235F42ED002E5C5C /* API.swift in Sources */,
 				A0B8152C235C6E69001C137B /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
