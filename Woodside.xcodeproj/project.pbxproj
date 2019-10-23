@@ -10,6 +10,8 @@
 		0692937213A4730254020554 /* Pods_WoodsideTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E47C56399D8B076AD7DE67E /* Pods_WoodsideTests.framework */; };
 		A062A090235F42C2002E5C5C /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = A062A08F235F42C2002E5C5C /* awsconfiguration.json */; };
 		A062A092235F42ED002E5C5C /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = A062A091235F42ED002E5C5C /* API.swift */; };
+		A062A09423605FE4002E5C5C /* EventListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A062A09323605FE4002E5C5C /* EventListView.swift */; };
+		A062A0972360613B002E5C5C /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = A062A0962360613B002E5C5C /* Event.swift */; };
 		A0B81528235C6E69001C137B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B81527235C6E69001C137B /* AppDelegate.swift */; };
 		A0B8152A235C6E69001C137B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B81529235C6E69001C137B /* SceneDelegate.swift */; };
 		A0B8152C235C6E69001C137B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B8152B235C6E69001C137B /* ContentView.swift */; };
@@ -48,6 +50,8 @@
 		785F60C1FC32550DF03F8445 /* Pods-Woodside.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Woodside.release.xcconfig"; path = "Target Support Files/Pods-Woodside/Pods-Woodside.release.xcconfig"; sourceTree = "<group>"; };
 		A062A08F235F42C2002E5C5C /* awsconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = awsconfiguration.json; sourceTree = SOURCE_ROOT; };
 		A062A091235F42ED002E5C5C /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = SOURCE_ROOT; };
+		A062A09323605FE4002E5C5C /* EventListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListView.swift; sourceTree = "<group>"; };
+		A062A0962360613B002E5C5C /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		A0B81524235C6E69001C137B /* Woodside.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Woodside.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0B81527235C6E69001C137B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A0B81529235C6E69001C137B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -108,6 +112,23 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		A062A09523606132002E5C5C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A062A0962360613B002E5C5C /* Event.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A062A09823606D07002E5C5C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A0B8152B235C6E69001C137B /* ContentView.swift */,
+				A062A09323605FE4002E5C5C /* EventListView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		A0B8151B235C6E69001C137B = {
 			isa = PBXGroup;
 			children = (
@@ -137,7 +158,8 @@
 				A062A08F235F42C2002E5C5C /* awsconfiguration.json */,
 				A0B81527235C6E69001C137B /* AppDelegate.swift */,
 				A0B81529235C6E69001C137B /* SceneDelegate.swift */,
-				A0B8152B235C6E69001C137B /* ContentView.swift */,
+				A062A09823606D07002E5C5C /* Views */,
+				A062A09523606132002E5C5C /* Models */,
 				A0B8152D235C6E6A001C137B /* Assets.xcassets */,
 				A0B81532235C6E6A001C137B /* LaunchScreen.storyboard */,
 				A0B81535235C6E6A001C137B /* Info.plist */,
@@ -404,9 +426,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A062A09423605FE4002E5C5C /* EventListView.swift in Sources */,
 				A0B81528235C6E69001C137B /* AppDelegate.swift in Sources */,
 				A0B8152A235C6E69001C137B /* SceneDelegate.swift in Sources */,
 				A062A092235F42ED002E5C5C /* API.swift in Sources */,
+				A062A0972360613B002E5C5C /* Event.swift in Sources */,
 				A0B8152C235C6E69001C137B /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
