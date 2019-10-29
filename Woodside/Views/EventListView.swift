@@ -9,16 +9,17 @@
 import SwiftUI
 
 struct EventListView: View {
-    @State private var events: [Event] = [
-        Event(id: UUID(), name: "THRWBCK"),
-        Event(id: UUID(), name: "Billionaire Girls Club"),
-        Event(id: UUID(), name: "Saucy"),
-        Event(id: UUID(), name: "Dutty")
+    @State private var events: [String] = [
+        "BBB",
+        "Woelig",
+        "Dutty"
     ]
 
     var body: some View {
-        List(events) { event in
-            Text(event.name)
+        List {
+            ForEach(self.events, id: \.self, content: {
+                Text($0)
+            })
         }
     }
 }

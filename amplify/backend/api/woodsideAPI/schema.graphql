@@ -1,5 +1,13 @@
-type Todo @model {
+type Venue @model { 
   id: ID!
   name: String!
+  events: [Event]! @connection(name: "EventConnection")
+  description: String
+}
+
+type Event @model {
+  id: ID!
+  name: String!
+  venue: Venue! @connection(name: "EventConnection")
   description: String
 }

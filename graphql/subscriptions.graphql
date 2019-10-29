@@ -1,22 +1,91 @@
 # this is an auto generated file. This will be overwritten
-subscription OnCreateTodo {
-  onCreateTodo {
+subscription OnCreateVenue {
+  onCreateVenue {
     id
     name
+    events {
+      items {
+        id
+        name
+        description
+      }
+      nextToken
+    }
     description
   }
 }
-subscription OnUpdateTodo {
-  onUpdateTodo {
+subscription OnUpdateVenue {
+  onUpdateVenue {
     id
     name
+    events {
+      items {
+        id
+        name
+        description
+      }
+      nextToken
+    }
     description
   }
 }
-subscription OnDeleteTodo {
-  onDeleteTodo {
+subscription OnDeleteVenue {
+  onDeleteVenue {
     id
     name
+    events {
+      items {
+        id
+        name
+        description
+      }
+      nextToken
+    }
+    description
+  }
+}
+subscription OnCreateEvent {
+  onCreateEvent {
+    id
+    name
+    venue {
+      id
+      name
+      events {
+        nextToken
+      }
+      description
+    }
+    description
+  }
+}
+subscription OnUpdateEvent {
+  onUpdateEvent {
+    id
+    name
+    venue {
+      id
+      name
+      events {
+        nextToken
+      }
+      description
+    }
+    description
+  }
+}
+subscription OnDeleteEvent {
+  onDeleteEvent {
+    id
+    name
+    venue {
+      id
+      name
+      events {
+        nextToken
+      }
+      description
+    }
     description
   }
 }

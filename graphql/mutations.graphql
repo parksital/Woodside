@@ -1,22 +1,91 @@
 # this is an auto generated file. This will be overwritten
-mutation CreateTodo($input: CreateTodoInput!) {
-  createTodo(input: $input) {
+mutation CreateVenue($input: CreateVenueInput!) {
+  createVenue(input: $input) {
     id
     name
+    events {
+      items {
+        id
+        name
+        description
+      }
+      nextToken
+    }
     description
   }
 }
-mutation UpdateTodo($input: UpdateTodoInput!) {
-  updateTodo(input: $input) {
+mutation UpdateVenue($input: UpdateVenueInput!) {
+  updateVenue(input: $input) {
     id
     name
+    events {
+      items {
+        id
+        name
+        description
+      }
+      nextToken
+    }
     description
   }
 }
-mutation DeleteTodo($input: DeleteTodoInput!) {
-  deleteTodo(input: $input) {
+mutation DeleteVenue($input: DeleteVenueInput!) {
+  deleteVenue(input: $input) {
     id
     name
+    events {
+      items {
+        id
+        name
+        description
+      }
+      nextToken
+    }
+    description
+  }
+}
+mutation CreateEvent($input: CreateEventInput!) {
+  createEvent(input: $input) {
+    id
+    name
+    venue {
+      id
+      name
+      events {
+        nextToken
+      }
+      description
+    }
+    description
+  }
+}
+mutation UpdateEvent($input: UpdateEventInput!) {
+  updateEvent(input: $input) {
+    id
+    name
+    venue {
+      id
+      name
+      events {
+        nextToken
+      }
+      description
+    }
+    description
+  }
+}
+mutation DeleteEvent($input: DeleteEventInput!) {
+  deleteEvent(input: $input) {
+    id
+    name
+    venue {
+      id
+      name
+      events {
+        nextToken
+      }
+      description
+    }
     description
   }
 }
