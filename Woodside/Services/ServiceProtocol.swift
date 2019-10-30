@@ -10,15 +10,7 @@ import Foundation
 import AWSAppSync
 
 protocol ServiceProtocol: class {
-    var appSyncClient: AWSAppSyncClient! { get set }
+    var appSyncClient: AWSAppSyncClient! { get }
     var cancellable: Cancellable? { get set }
-    init()
-}
-
-extension ServiceProtocol {
-    init() {
-        self.init()
-        let delegate = UIApplication.shared.delegate as! AppDelegate
-        self.appSyncClient = delegate.appSyncClient
-    }
+    init(client: AWSAppSyncClient)
 }

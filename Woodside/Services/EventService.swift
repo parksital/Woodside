@@ -35,5 +35,9 @@ extension Events {
 final class EventService: Events {
     var appSyncClient: AWSAppSyncClient!
     var cancellable: Cancellable?
+
+    init(client: AWSAppSyncClient) {
+        appSyncClient = client
+    }
 }
  

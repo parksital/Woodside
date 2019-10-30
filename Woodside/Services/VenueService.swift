@@ -30,10 +30,17 @@ extension Venues {
     
     func getAllVenues() {
         appSyncClient.fetch(query: ListVenuesQuery(), cachePolicy: .returnCacheDataAndFetch) { result, error in
-            // success: handle the retrieved venues
+            if error != nil {
+                print(error?.localizedDescription ?? "")
+                return
+            }
+            print("Query complete.")
+            result?.data?.listVenues?.items?
+                .compactMap { $0 }
+                .forEach { print($0.name) }
         }
     }
-    
+
     func getVenueByID(id: GraphQLID) {
         appSyncClient.fetch(query: GetVenueQuery(id: id), cachePolicy: .returnCacheDataAndFetch) { (result, error) in
             // success: handle the retrieved venue
@@ -46,6 +53,10 @@ extension Venues {
 }
 
 final class VenueService: Venues {
-    var appSyncClient: AWSAppSyncClient!
+    private (set) var appSyncClient: AWSAppSyncClient!
     var cancellable: Cancellable?
+    
+    init(client: AWSAppSyncClient) {
+        appSyncClient = client
+    }
 }
