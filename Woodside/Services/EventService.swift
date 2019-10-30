@@ -31,3 +31,4 @@ extension Events {
 final class EventService: Events {
     var appSyncClient: AWSAppSyncClient!
 }
+ 

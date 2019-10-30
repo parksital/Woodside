@@ -114,13 +114,6 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		A062A09523606132002E5C5C /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
 		A062A09823606D07002E5C5C /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -170,7 +163,6 @@
 				A0B81529235C6E69001C137B /* SceneDelegate.swift */,
 				A062A099236097F0002E5C5C /* Services */,
 				A062A09823606D07002E5C5C /* Views */,
-				A062A09523606132002E5C5C /* Models */,
 				A0B8152D235C6E6A001C137B /* Assets.xcassets */,
 				A0B81532235C6E6A001C137B /* LaunchScreen.storyboard */,
 				A0B81535235C6E6A001C137B /* Info.plist */,
