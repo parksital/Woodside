@@ -26,6 +26,10 @@ extension Events {
             // success: handle the retrieved event
         }
     }
+    
+    func runMutation(){
+        // wip
+    }
 }
 
 final class EventService: Events {
