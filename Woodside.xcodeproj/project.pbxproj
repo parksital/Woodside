@@ -12,6 +12,7 @@
 		A062A092235F42ED002E5C5C /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = A062A091235F42ED002E5C5C /* API.swift */; };
 		A062A09423605FE4002E5C5C /* EventListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A062A09323605FE4002E5C5C /* EventListView.swift */; };
 		A062A09B23609802002E5C5C /* EventService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A062A09A23609802002E5C5C /* EventService.swift */; };
+		A064BDAF2369ACC2004B7C01 /* VenueService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A064BDAE2369ACC2004B7C01 /* VenueService.swift */; };
 		A0B81528235C6E69001C137B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B81527235C6E69001C137B /* AppDelegate.swift */; };
 		A0B8152A235C6E69001C137B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B81529235C6E69001C137B /* SceneDelegate.swift */; };
 		A0B8152C235C6E69001C137B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B8152B235C6E69001C137B /* ContentView.swift */; };
@@ -53,6 +54,7 @@
 		A062A091235F42ED002E5C5C /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = SOURCE_ROOT; };
 		A062A09323605FE4002E5C5C /* EventListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListView.swift; sourceTree = "<group>"; };
 		A062A09A23609802002E5C5C /* EventService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventService.swift; sourceTree = "<group>"; };
+		A064BDAE2369ACC2004B7C01 /* VenueService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueService.swift; sourceTree = "<group>"; };
 		A0B81524235C6E69001C137B /* Woodside.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Woodside.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0B81527235C6E69001C137B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A0B81529235C6E69001C137B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 			children = (
 				A0E7E35E236897E300A6B743 /* ServiceProtocol.swift */,
 				A062A09A23609802002E5C5C /* EventService.swift */,
+				A064BDAE2369ACC2004B7C01 /* VenueService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -430,6 +433,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A062A09423605FE4002E5C5C /* EventListView.swift in Sources */,
+				A064BDAF2369ACC2004B7C01 /* VenueService.swift in Sources */,
 				A0B81528235C6E69001C137B /* AppDelegate.swift in Sources */,
 				A0B8152A235C6E69001C137B /* SceneDelegate.swift in Sources */,
 				A0E7E35F236897E300A6B743 /* ServiceProtocol.swift in Sources */,
