@@ -15,29 +15,29 @@ protocol Events: ServiceProtocol {
 }
 
 extension Events {
+    func subscribe() {
+
+    }
+    
     func getAllEvents() {
-        appSyncClient.fetch(query: ListEventsQuery(), cachePolicy: .returnCacheDataAndFetch) { result, error in
-            // success: handle the retrieved events
+        client.fetch(query: ListEventsQuery()) { (result, error) in
+            
         }
     }
     
     func getEventByID(id: GraphQLID) {
-        appSyncClient.fetch(query: GetEventQuery(id: id), cachePolicy: .returnCacheDataAndFetch) { (result, error) in
-            // success: handle the retrieved event
+        client.fetch(query: GetEventQuery(id: id)) { (result, error) in
+            
         }
-    }
-    
-    func runMutation(){
-        // wip
     }
 }
 
 final class EventService: Events {
-    var appSyncClient: AWSAppSyncClient!
-    var cancellable: Cancellable?
+    private (set) var client: APIClient!
+    private (set) var cancellable: Cancellable?
 
-    init(client: AWSAppSyncClient) {
-        appSyncClient = client
+    init(client: APIClient) {
+        self.client = client
     }
 }
  

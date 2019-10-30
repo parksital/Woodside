@@ -9,8 +9,29 @@
 import Foundation
 import AWSAppSync
 
+protocol APIClient {
+    func fetch<Q: GraphQLQuery>(query: Q, resultHandler: @escaping OperationResultHandler<Q>)
+}
+
+class AWSClient: APIClient {
+    private var appSyncClient: AWSAppSyncClient!
+    
+    init(appSyncClient: AWSAppSyncClient) {
+        self.appSyncClient = appSyncClient
+    }
+    
+    func fetch<Q: GraphQLQuery>(query: Q, resultHandler: @escaping OperationResultHandler<Q>) {
+
+        appSyncClient.fetch(
+            query: query,
+            cachePolicy: .returnCacheDataAndFetch,
+            queue: .main,
+            resultHandler: resultHandler)
+    }
+}
+
 protocol ServiceProtocol: class {
-    var appSyncClient: AWSAppSyncClient! { get }
-    var cancellable: Cancellable? { get set }
-    init(client: AWSAppSyncClient)
+    var client: APIClient! { get }
+    var cancellable: Cancellable? { get }
+    init(client: APIClient)
 }
