@@ -9,8 +9,9 @@
 import Foundation
 import AWSAppSync
 
-protocol ServiceProtocol {
+protocol ServiceProtocol: class {
     var appSyncClient: AWSAppSyncClient! { get set }
+    var cancellable: Cancellable? { get set }
     init()
 }
 
