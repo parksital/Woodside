@@ -20,13 +20,13 @@ extension Events {
     }
     
     func getAllEvents() {
-        client.fetch(query: ListEventsQuery()) { (result, error) in
+        client.fetch(query: ListEventsQuery()) { result in
             
         }
     }
     
     func getEventByID(id: GraphQLID) {
-        client.fetch(query: GetEventQuery(id: id)) { (result, error) in
+        client.fetch(query: GetEventQuery(id: id)) { result in
             
         }
     }

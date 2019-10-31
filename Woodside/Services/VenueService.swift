@@ -10,9 +10,9 @@ import Foundation
 import AWSAppSync
 
 protocol Venues: ServiceProtocol {
-    // subject to update to include completion handler
+    typealias Venue = GetVenueQuery.Data.GetVenue
     func getAllVenues()
-    func getVenueByID(id: GraphQLID)
+    func getVenueByID(id: GraphQLID, completion: @escaping (Result<Venue>) -> Void)
 }
 
 extension Venues {
@@ -28,37 +28,27 @@ extension Venues {
 //        }
     }
     
-    
     func getAllVenues() {
-        client.fetch(query: ListVenuesQuery()) { result, error in
-            guard error == nil else {
-                // throw an error?
-                assertionFailure("encountered an error: \(error!.localizedDescription)")
-                return
+        client.fetch(query: ListVenuesQuery()) { result in
+            switch result {
+            case .success(let data):
+                data.listVenues?.items?
+                    .compactMap { $0 }
+                    .forEach { print($0.name) }
+
+            case .failure(let error): assertionFailure(error.localizedDescription)
             }
-            
-            result?.data?.listVenues?.items?
-                .compactMap { $0 }
-                .forEach { print($0.name) }
         }
     }
-    
 
-    func getVenueByID(id: GraphQLID) {
-        client.fetch(query: GetVenueQuery(id: id)) { result, error in
-            guard error == nil else {
-                assertionFailure("fetching error: \(error!.localizedDescription)")
+    func getVenueByID(id: GraphQLID, completion: @escaping (Result<Venue>) -> Void) {
+        client.fetch(query: GetVenueQuery(id: id)) { result in
+            switch result {
+            case .success(let data):
+                guard let venueObject = data.getVenue else { return }
+                completion(.success(venueObject))
                 return
-            }
-            
-            let venue: GetVenueQuery.Data.GetVenue
-            
-            let venueObject = result?.data?.getVenue?.jsonObject
-            do {
-                venue = try GetVenueQuery.Data.GetVenue(jsonObject: venueObject!)
-                print(venue.name)
-            } catch {
-                assertionFailure(error.localizedDescription)
+            case .failure(let error): assertionFailure(error.localizedDescription)
             }
         }
     }
