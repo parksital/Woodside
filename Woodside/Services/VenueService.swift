@@ -46,7 +46,20 @@ extension Venues {
 
     func getVenueByID(id: GraphQLID) {
         client.fetch(query: GetVenueQuery(id: id)) { result, error in
-            // handle cases
+            guard error == nil else {
+                assertionFailure("fetching error: \(error!.localizedDescription)")
+                return
+            }
+            
+            let venue: GetVenueQuery.Data.GetVenue
+            
+            let venueObject = result?.data?.getVenue?.jsonObject
+            do {
+                venue = try GetVenueQuery.Data.GetVenue(jsonObject: venueObject!)
+                print(venue.name)
+            } catch {
+                assertionFailure(error.localizedDescription)
+            }
         }
     }
 }
