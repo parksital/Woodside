@@ -9,10 +9,6 @@
 import Foundation
 import AWSAppSync
 
-enum NetworkError: Error {
-    case noData
-}
-
 protocol APIClient {
     func fetch<Q: GraphQLQuery>(query: Q, completion: @escaping (Result<Q.Data>) -> Void)
 }
