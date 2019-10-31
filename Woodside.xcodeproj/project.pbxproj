@@ -22,6 +22,7 @@
 		A0B8153F235C6E6A001C137B /* WoodsideTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B8153E235C6E6A001C137B /* WoodsideTests.swift */; };
 		A0B8154A235C6E6A001C137B /* WoodsideUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B81549235C6E6A001C137B /* WoodsideUITests.swift */; };
 		A0E7E35F236897E300A6B743 /* ServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E7E35E236897E300A6B743 /* ServiceProtocol.swift */; };
+		A0FC17CA236B0D7A005AD57D /* AWSClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FC17C9236B0D7A005AD57D /* AWSClient.swift */; };
 		CDB45876C2A9DF7DF16E03F5 /* Pods_Woodside.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A70B19BC3005AF734D8ED743 /* Pods_Woodside.framework */; };
 		E7BE6EAB047A0C26802FC5E6 /* Pods_WoodsideUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11F75A20782ECA3CDC10EF17 /* Pods_WoodsideUITests.framework */; };
 /* End PBXBuildFile section */
@@ -70,6 +71,7 @@
 		A0B81549235C6E6A001C137B /* WoodsideUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoodsideUITests.swift; sourceTree = "<group>"; };
 		A0B8154B235C6E6A001C137B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A0E7E35E236897E300A6B743 /* ServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProtocol.swift; sourceTree = "<group>"; };
+		A0FC17C9236B0D7A005AD57D /* AWSClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSClient.swift; sourceTree = "<group>"; };
 		A70B19BC3005AF734D8ED743 /* Pods_Woodside.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Woodside.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0E26E6E4E5DD57FE6C29347 /* Pods-WoodsideUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WoodsideUITests.debug.xcconfig"; path = "Target Support Files/Pods-WoodsideUITests/Pods-WoodsideUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		F15D0107356E0EBDFA1BC298 /* Pods-WoodsideUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WoodsideUITests.release.xcconfig"; path = "Target Support Files/Pods-WoodsideUITests/Pods-WoodsideUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 				A062A08F235F42C2002E5C5C /* awsconfiguration.json */,
 				A0B81527235C6E69001C137B /* AppDelegate.swift */,
 				A0B81529235C6E69001C137B /* SceneDelegate.swift */,
+				A0FC17C8236B0D53005AD57D /* Network */,
 				A062A099236097F0002E5C5C /* Services */,
 				A062A09823606D07002E5C5C /* Views */,
 				A0B8152D235C6E6A001C137B /* Assets.xcassets */,
@@ -198,6 +201,14 @@
 				A0B8154B235C6E6A001C137B /* Info.plist */,
 			);
 			path = WoodsideUITests;
+			sourceTree = "<group>";
+		};
+		A0FC17C8236B0D53005AD57D /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				A0FC17C9236B0D7A005AD57D /* AWSClient.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		AE0C11E933E2ACDB2BF24277 /* Frameworks */ = {
@@ -440,6 +451,7 @@
 				A062A092235F42ED002E5C5C /* API.swift in Sources */,
 				A0B8152C235C6E69001C137B /* ContentView.swift in Sources */,
 				A062A09B23609802002E5C5C /* EventService.swift in Sources */,
+				A0FC17CA236B0D7A005AD57D /* AWSClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

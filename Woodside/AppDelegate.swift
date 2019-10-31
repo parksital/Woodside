@@ -12,17 +12,12 @@ import AWSAppSync
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    public var appSyncClient: AWSAppSyncClient!
+    public var awsClient: APIClient!
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        do {
-            let appSyncConfig = try AWSAppSyncClientConfiguration(appSyncServiceConfig: AWSAppSyncServiceConfig(), cacheConfiguration: AWSAppSyncCacheConfiguration())
-            appSyncClient = try AWSAppSyncClient.init(appSyncConfig: appSyncConfig)
-        } catch {
-            print("Error initializing appSyncClient. Error: \(error.localizedDescription)")
-            appSyncClient = nil
-        }
+
+        awsClient = AWSClient()
         
         return true
     }

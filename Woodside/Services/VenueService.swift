@@ -10,42 +10,52 @@ import Foundation
 import AWSAppSync
 
 protocol Venues: ServiceProtocol {
+    // subject to update to include completion handler
     func getAllVenues()
     func getVenueByID(id: GraphQLID)
 }
 
 extension Venues {
     func subscribe() {
-        do {
-            cancellable = try appSyncClient.subscribe(subscription: OnCreateEventSubscription(), resultHandler: { (result, transaction, error) in
-                if let result = result {
-                    print("CreateTodo subscription data:" + result.data!.onCreateEvent!.name + " " + result.data!.onCreateEvent!.description!)
-                }
-            })
-        } catch {
-            print("AWS Subscription init: \(error.localizedDescription)")
-        }
+//        do {
+//            cancellable = try appSyncClient.subscribe(subscription: OnCreateEventSubscription(), resultHandler: { (result, transaction, error) in
+//                if let result = result {
+//                    print("CreateTodo subscription data:" + result.data!.onCreateEvent!.name + " " + result.data!.onCreateEvent!.description!)
+//                }
+//            })
+//        } catch {
+//            print("AWS Subscription init: \(error.localizedDescription)")
+//        }
     }
     
     
     func getAllVenues() {
-        appSyncClient.fetch(query: ListVenuesQuery(), cachePolicy: .returnCacheDataAndFetch) { result, error in
-            // success: handle the retrieved venues
+        client.fetch(query: ListVenuesQuery()) { result, error in
+            guard error == nil else {
+                // throw an error?
+                assertionFailure("encountered an error: \(error!.localizedDescription)")
+                return
+            }
+            
+            result?.data?.listVenues?.items?
+                .compactMap { $0 }
+                .forEach { print($0.name) }
         }
     }
     
+
     func getVenueByID(id: GraphQLID) {
-        appSyncClient.fetch(query: GetVenueQuery(id: id), cachePolicy: .returnCacheDataAndFetch) { (result, error) in
-            // success: handle the retrieved venue
+        client.fetch(query: GetVenueQuery(id: id)) { result, error in
+            // handle cases
         }
-    }
-    
-    func runMutation() {
-        // wip
     }
 }
 
 final class VenueService: Venues {
-    var appSyncClient: AWSAppSyncClient!
-    var cancellable: Cancellable?
+    private (set) var client: APIClient!
+    private (set) var cancellable: Cancellable?
+    
+    init(client: APIClient) {
+        self.client = client
+    }
 }
