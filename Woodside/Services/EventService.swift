@@ -14,7 +14,10 @@ protocol Events: ServiceProtocol {
         completion: @escaping (Result<[ListEventsQuery.Data.ListEvent.Item]>) -> Void
     )
 
-    func getEventByID(id: GraphQLID)
+    func getEventByID(
+        id: GraphQLID,
+        completion: @escaping (Result<GetEventQuery.Data.GetEvent>) -> Void
+    )
 }
 
 extension Events {
@@ -30,9 +33,18 @@ extension Events {
         }
     }
     
-    func getEventByID(id: GraphQLID) {
+    func getEventByID(
+        id: GraphQLID,
+        completion: @escaping (Result<GetEventQuery.Data.GetEvent>) -> Void
+    ) {
         client.fetch(query: GetEventQuery(id: id)) { result in
-            
+            switch result {
+            case .success(let data):
+                guard let eventObject = data.getEvent else { return }
+                completion(.success(eventObject))
+            case .failure(let error):
+                completion(.failure(error))
+            }
         }
     }
 }
@@ -45,4 +57,3 @@ final class EventService: Events {
         self.client = client
     }
 }
- 
