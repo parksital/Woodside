@@ -10,18 +10,23 @@ import Foundation
 import AWSAppSync
 
 protocol Events: ServiceProtocol {
-    func getAllEvents()
+    func getAllEvents(
+        completion: @escaping (Result<[ListEventsQuery.Data.ListEvent.Item]>) -> Void
+    )
+
     func getEventByID(id: GraphQLID)
 }
 
 extension Events {
-    func subscribe() {
-
-    }
-    
-    func getAllEvents() {
+    func getAllEvents(completion: @escaping (Result<[ListEventsQuery.Data.ListEvent.Item]>) -> Void) {
         client.fetch(query: ListEventsQuery()) { result in
-            
+            switch result {
+            case .success(let data):
+                let events = data.listEvents?.items?.compactMap { $0 } ?? []
+                completion(.success(events))
+            case .failure(let error):
+                completion(.failure(error))
+            }
         }
     }
     
