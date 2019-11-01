@@ -14,7 +14,15 @@ protocol Events: ServiceProtocol {
         completion: @escaping (Result<[ListEventsQuery.Data.ListEvent.Item]>) -> Void
     )
 
-    func getEventByID(id: GraphQLID)
+    func getEventByID(
+        id: GraphQLID,
+        completion: @escaping (Result<GetEventQuery.Data.GetEvent>) -> Void
+    )
+    
+    func getEventsForVenue(
+        venueID: GraphQLID,
+        completion: @escaping (Result<[GetVenueQuery.Data.GetVenue.Event.Item]>) -> Void
+    )
 }
 
 extension Events {
@@ -30,9 +38,35 @@ extension Events {
         }
     }
     
-    func getEventByID(id: GraphQLID) {
+    func getEventByID(
+        id: GraphQLID,
+        completion: @escaping (Result<GetEventQuery.Data.GetEvent>) -> Void
+    ) {
         client.fetch(query: GetEventQuery(id: id)) { result in
-            
+            switch result {
+            case .success(let data):
+                guard let eventObject = data.getEvent else { return }
+                completion(.success(eventObject))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
+    
+    func getEventsForVenue(
+        venueID: GraphQLID,
+        completion: @escaping (Result<[GetVenueQuery.Data.GetVenue.Event.Item]>) -> Void
+    ) {
+        client.fetch(query: GetVenueQuery(id: venueID)) { result in
+            switch result {
+            case .success(let data):
+                guard let venueObject = data.getVenue else { return }
+                let events = venueObject.events?.items?.compactMap { $0 } ?? []
+                events.forEach { print($0.name) }
+                completion(.success(events))
+            case .failure(let error):
+                completion(.failure(error))
+            }
         }
     }
 }
@@ -45,4 +79,3 @@ final class EventService: Events {
         self.client = client
     }
 }
- 
