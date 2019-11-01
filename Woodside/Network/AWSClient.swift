@@ -10,7 +10,7 @@ import Foundation
 import AWSAppSync
 
 protocol APIClient {
-    func fetch<Q: GraphQLQuery>(query: Q, resultHandler: @escaping OperationResultHandler<Q>)
+    func fetch<Q: GraphQLQuery>(query: Q, completion: @escaping (Result<Q.Data>) -> Void)
 }
 
 class AWSClient: APIClient {
@@ -29,13 +29,23 @@ class AWSClient: APIClient {
             print("Error initializing appSyncClient. Error: \(error.localizedDescription)")
         }
     }
-
-    func fetch<Q: GraphQLQuery>(query: Q, resultHandler: @escaping OperationResultHandler<Q>) {
-
+    
+    func fetch<Q: GraphQLQuery>(query: Q, completion: @escaping (Result<Q.Data>) -> Void) {
         appSyncClient.fetch(
             query: query,
             cachePolicy: .returnCacheDataAndFetch,
-            queue: .main,
-            resultHandler: resultHandler)
+            queue: .global(qos: .userInitiated)) { result, error in
+                guard error == nil else {
+                    completion(.failure(error!))
+                    return
+                }
+
+                guard let data = result?.data else {
+                    completion(.failure(NetworkError.noData))
+                    return
+                }
+
+                completion(.success(data))
+        }
     }
 }

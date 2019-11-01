@@ -9,44 +9,41 @@
 import Foundation
 import AWSAppSync
 
+// MARK: - TODO: Result<TYPEALIAS>
 protocol Venues: ServiceProtocol {
-    // subject to update to include completion handler
-    func getAllVenues()
-    func getVenueByID(id: GraphQLID)
+    func getAllVenues(
+        completion: @escaping (Result< [ListVenuesQuery.Data.ListVenue.Item]>) -> Void
+    )
+    
+    func getVenueByID(
+        id: GraphQLID,
+        completion: @escaping (Result<GetVenueQuery.Data.GetVenue>) -> Void
+    )
 }
 
 extension Venues {
-    func subscribe() {
-//        do {
-//            cancellable = try appSyncClient.subscribe(subscription: OnCreateEventSubscription(), resultHandler: { (result, transaction, error) in
-//                if let result = result {
-//                    print("CreateTodo subscription data:" + result.data!.onCreateEvent!.name + " " + result.data!.onCreateEvent!.description!)
-//                }
-//            })
-//        } catch {
-//            print("AWS Subscription init: \(error.localizedDescription)")
-//        }
-    }
-    
-    
-    func getAllVenues() {
-        client.fetch(query: ListVenuesQuery()) { result, error in
-            guard error == nil else {
-                // throw an error?
-                assertionFailure("encountered an error: \(error!.localizedDescription)")
-                return
+    func getAllVenues(completion: @escaping (Result<[ListVenuesQuery.Data.ListVenue.Item]>) -> Void) {
+        client.fetch(query: ListVenuesQuery()) { result in
+            switch result {
+            case .success(let data):
+                let venues = data.listVenues?.items?
+                    .compactMap { $0 } ?? []
+                completion(.success(venues))
+            case .failure(let error):
+                completion(.failure(error))
             }
-            
-            result?.data?.listVenues?.items?
-                .compactMap { $0 }
-                .forEach { print($0.name) }
         }
     }
-    
 
-    func getVenueByID(id: GraphQLID) {
-        client.fetch(query: GetVenueQuery(id: id)) { result, error in
-            // handle cases
+    func getVenueByID(id: GraphQLID, completion: @escaping (Result<GetVenueQuery.Data.GetVenue>) -> Void) {
+        client.fetch(query: GetVenueQuery(id: id)) { result in
+            switch result {
+            case .success(let data):
+                guard let venueObject = data.getVenue else { return }
+                completion(.success(venueObject))
+                return
+            case .failure(let error): assertionFailure(error.localizedDescription)
+            }
         }
     }
 }
