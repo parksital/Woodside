@@ -9,39 +9,33 @@
 import Foundation
 import AWSAppSync
 
+// MARK: - TODO: Result<TYPEALIAS>
 protocol Venues: ServiceProtocol {
-    typealias Venue = GetVenueQuery.Data.GetVenue
-    func getAllVenues()
-    func getVenueByID(id: GraphQLID, completion: @escaping (Result<Venue>) -> Void)
+    func getAllVenues(
+        completion: @escaping (Result< [ListVenuesQuery.Data.ListVenue.Item]>) -> Void
+    )
+    
+    func getVenueByID(
+        id: GraphQLID,
+        completion: @escaping (Result<GetVenueQuery.Data.GetVenue>) -> Void
+    )
 }
 
 extension Venues {
-    func subscribe() {
-//        do {
-//            cancellable = try appSyncClient.subscribe(subscription: OnCreateEventSubscription(), resultHandler: { (result, transaction, error) in
-//                if let result = result {
-//                    print("CreateTodo subscription data:" + result.data!.onCreateEvent!.name + " " + result.data!.onCreateEvent!.description!)
-//                }
-//            })
-//        } catch {
-//            print("AWS Subscription init: \(error.localizedDescription)")
-//        }
-    }
-    
-    func getAllVenues() {
+    func getAllVenues(completion: @escaping (Result<[ListVenuesQuery.Data.ListVenue.Item]>) -> Void) {
         client.fetch(query: ListVenuesQuery()) { result in
             switch result {
             case .success(let data):
-                data.listVenues?.items?
-                    .compactMap { $0 }
-                    .forEach { print($0.name) }
-
-            case .failure(let error): assertionFailure(error.localizedDescription)
+                let venues = data.listVenues?.items?
+                    .compactMap { $0 } ?? []
+                completion(.success(venues))
+            case .failure(let error):
+                completion(.failure(error))
             }
         }
     }
 
-    func getVenueByID(id: GraphQLID, completion: @escaping (Result<Venue>) -> Void) {
+    func getVenueByID(id: GraphQLID, completion: @escaping (Result<GetVenueQuery.Data.GetVenue>) -> Void) {
         client.fetch(query: GetVenueQuery(id: id)) { result in
             switch result {
             case .success(let data):
