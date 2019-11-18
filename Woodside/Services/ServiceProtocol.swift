@@ -7,10 +7,8 @@
 //
 
 import Foundation
-import AWSAppSync
 
 protocol ServiceProtocol: class {
     var client: APIClient! { get }
-    var cancellable: Cancellable? { get }
     init(client: APIClient)
 }

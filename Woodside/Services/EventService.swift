@@ -8,11 +8,11 @@
 
 import Foundation
 import AWSAppSync
+import Combine
 
 protocol Events: ServiceProtocol {
-    func getAllEvents(
-        completion: @escaping (Result<[ListEventsQuery.Data.ListEvent.Item]>) -> Void
-    )
+    var token: String? { get set }
+    func getAllEvents() -> AnyPublisher<[Event], Never>
 
     func getEventByID(
         id: GraphQLID,
@@ -26,6 +26,34 @@ protocol Events: ServiceProtocol {
 }
 
 extension Events {
+    func getAllEvents() -> AnyPublisher<[Event], Never> {
+        client.fetch(query: ListEventsQuery(limit: 20, nextToken: token))
+            .map(unwrap(_:))
+            .map(mapToEvent(_:))
+            .replaceError(with: [])
+            .eraseToAnyPublisher()
+    }
+    
+    private func unwrap(_ data: ListEventsQuery.Data) -> [ListEventsQuery.Data.ListEvent.Item] {
+        updateToken(data.listEvents?.nextToken)
+        return data.listEvents?.items?.compactMap { $0 } ?? []
+    }
+    
+    private func mapToEvent(_ items: [ListEventsQuery.Data.ListEvent.Item]) -> [Event] {
+        return items.map {
+            Event(
+                id: $0.id,
+                name: $0.name,
+                venueName: $0.venue.name,
+                description: $0.description
+            )
+        }
+    }
+    
+    private func updateToken(_ token: String?) {
+        self.token = token
+    }
+    
     func getAllEvents(completion: @escaping (Result<[ListEventsQuery.Data.ListEvent.Item]>) -> Void) {
         client.fetch(query: ListEventsQuery()) { result in
             switch result {
@@ -73,9 +101,13 @@ extension Events {
 
 final class EventService: Events {
     private (set) var client: APIClient!
-    private (set) var cancellable: Cancellable?
+    var token: String?
 
     init(client: APIClient) {
+        self.client = client
+    }
+
+    init(client: APIClient? = AWSClient()) {
         self.client = client
     }
 }
