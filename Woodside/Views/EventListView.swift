@@ -9,17 +9,16 @@
 import SwiftUI
 
 struct EventListView: View {
-    @State private var events: [String] = [
-        "BBB",
-        "Woelig",
-        "Dutty"
-    ]
+    @EnvironmentObject var eventStore: EventStore
 
     var body: some View {
-        List {
-            ForEach(self.events, id: \.self, content: {
-                Text($0)
-            })
+        NavigationView {
+            List {
+                ForEach(eventStore.events, id: \.id, content: { event in
+                    NavigationLink(destination: EmptyView(), label: { Text(event.name) })
+                })
+            }.navigationBarTitle("Events")
+            .onAppear { self.eventStore.getEventList(limit: 20) }
         }
     }
 }
