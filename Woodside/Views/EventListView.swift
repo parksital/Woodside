@@ -18,7 +18,7 @@ struct EventListView: View {
                     NavigationLink(destination: EmptyView(), label: { Text(event.name) })
                 })
             }.navigationBarTitle("Events")
-            .onAppear { self.eventStore.getEventList(limit: 20) }
+                .onAppear(perform: eventStore.getAllEvents)
         }
     }
 }
