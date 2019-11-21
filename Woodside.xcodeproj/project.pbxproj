@@ -14,6 +14,8 @@
 		A062A09B23609802002E5C5C /* EventService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A062A09A23609802002E5C5C /* EventService.swift */; };
 		A064BDAF2369ACC2004B7C01 /* VenueService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A064BDAE2369ACC2004B7C01 /* VenueService.swift */; };
 		A0650AFC2381F5F700B9450A /* EventStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0650AFB2381F5F700B9450A /* EventStore.swift */; };
+		A08AC5F12382D95D007082D3 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08AC5F02382D95D007082D3 /* Event.swift */; };
+		A0A1FBE823874B33002D6539 /* EventsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A1FBE723874B33002D6539 /* EventsProtocol.swift */; };
 		A0B81528235C6E69001C137B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B81527235C6E69001C137B /* AppDelegate.swift */; };
 		A0B8152A235C6E69001C137B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B81529235C6E69001C137B /* SceneDelegate.swift */; };
 		A0B8152C235C6E69001C137B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B8152B235C6E69001C137B /* ContentView.swift */; };
@@ -59,6 +61,8 @@
 		A062A09A23609802002E5C5C /* EventService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventService.swift; sourceTree = "<group>"; };
 		A064BDAE2369ACC2004B7C01 /* VenueService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueService.swift; sourceTree = "<group>"; };
 		A0650AFB2381F5F700B9450A /* EventStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventStore.swift; sourceTree = "<group>"; };
+		A08AC5F02382D95D007082D3 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = SOURCE_ROOT; };
+		A0A1FBE723874B33002D6539 /* EventsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsProtocol.swift; sourceTree = "<group>"; };
 		A0B81524235C6E69001C137B /* Woodside.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Woodside.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0B81527235C6E69001C137B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A0B81529235C6E69001C137B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -134,7 +138,6 @@
 		A062A099236097F0002E5C5C /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				A0E7E35E236897E300A6B743 /* ServiceProtocol.swift */,
 				A062A09A23609802002E5C5C /* EventService.swift */,
 				A064BDAE2369ACC2004B7C01 /* VenueService.swift */,
 			);
@@ -147,6 +150,23 @@
 				A0650AFB2381F5F700B9450A /* EventStore.swift */,
 			);
 			path = Stores;
+			sourceTree = "<group>";
+		};
+		A08AC5EF2382D94A007082D3 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A08AC5F02382D95D007082D3 /* Event.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A0A1FBE623874B17002D6539 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				A0E7E35E236897E300A6B743 /* ServiceProtocol.swift */,
+				A0A1FBE723874B33002D6539 /* EventsProtocol.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		A0B8151B235C6E69001C137B = {
@@ -181,6 +201,8 @@
 				A0FC17CD236B7BA6005AD57D /* Errors */,
 				A0FC17C8236B0D53005AD57D /* Network */,
 				A0650AFA2381F5CD00B9450A /* Stores */,
+				A08AC5EF2382D94A007082D3 /* Models */,
+				A0A1FBE623874B17002D6539 /* Protocols */,
 				A062A099236097F0002E5C5C /* Services */,
 				A062A09823606D07002E5C5C /* Views */,
 				A0B8152D235C6E6A001C137B /* Assets.xcassets */,
@@ -469,7 +491,9 @@
 				A064BDAF2369ACC2004B7C01 /* VenueService.swift in Sources */,
 				A0B81528235C6E69001C137B /* AppDelegate.swift in Sources */,
 				A0B8152A235C6E69001C137B /* SceneDelegate.swift in Sources */,
+				A08AC5F12382D95D007082D3 /* Event.swift in Sources */,
 				A0E7E35F236897E300A6B743 /* ServiceProtocol.swift in Sources */,
+				A0A1FBE823874B33002D6539 /* EventsProtocol.swift in Sources */,
 				A062A092235F42ED002E5C5C /* API.swift in Sources */,
 				A0B8152C235C6E69001C137B /* ContentView.swift in Sources */,
 				A0650AFC2381F5F700B9450A /* EventStore.swift in Sources */,

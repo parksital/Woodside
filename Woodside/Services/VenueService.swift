@@ -8,6 +8,7 @@
 
 import Foundation
 import AWSAppSync
+import Combine
 
 // MARK: - TODO: Result<TYPEALIAS>
 protocol Venues: ServiceProtocol {
@@ -50,8 +51,8 @@ extension Venues {
 
 final class VenueService: Venues {
     private (set) var client: APIClient!
-    private (set) var cancellable: Cancellable?
-    
+    private (set) var cancellable: AnyCancellable?
+
     init(client: APIClient) {
         self.client = client
     }
