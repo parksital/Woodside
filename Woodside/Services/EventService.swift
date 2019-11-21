@@ -13,89 +13,44 @@ import Combine
 protocol Events: ServiceProtocol {
     var token: String? { get set }
     func getAllEvents() -> AnyPublisher<[Event], Never>
-
-    func getEventByID(
-        id: GraphQLID,
-        completion: @escaping (Result<GetEventQuery.Data.GetEvent>) -> Void
-    )
-    
-    func getEventsForVenue(
-        venueID: GraphQLID,
-        completion: @escaping (Result<[GetVenueQuery.Data.GetVenue.Event.Item]>) -> Void
-    )
+    func getEvent(byID eventID: GraphQLID) -> AnyPublisher<Event?, Never>
 }
 
 extension Events {
     func getAllEvents() -> AnyPublisher<[Event], Never> {
         client.fetch(query: ListEventsQuery(limit: 20, nextToken: token))
+            .compactMap { $0.listEvents }
+            .handleEvents(receiveOutput: updateToken(_:))
             .map(unwrap(_:))
-            .map(mapToEvent(_:))
+            .map(mapListEventToEvent(_:))
             .replaceError(with: [])
             .eraseToAnyPublisher()
     }
-    
-    private func unwrap(_ data: ListEventsQuery.Data) -> [ListEventsQuery.Data.ListEvent.Item] {
-        updateToken(data.listEvents?.nextToken)
-        return data.listEvents?.items?.compactMap { $0 } ?? []
+
+    func getEvent(byID eventID: GraphQLID) -> AnyPublisher<Event?, Never> {
+        return client.fetch(query: GetEventQuery(id: eventID))
+            .compactMap { $0.getEvent }
+            .map(mapGetEventItemToEvent(_:))
+            .catch { _ in Just<Event?>(nil) }
+            .eraseToAnyPublisher()
+    }
+}
+
+private extension Events {
+    func unwrap(_ data: ListEventsQuery.Data.ListEvent) -> [ListEventsQuery.Data.ListEvent.Item] {
+        data.items?.compactMap { $0 } ?? []
+    }
+
+    func mapGetEventItemToEvent(_ item: GetEventQuery.Data.GetEvent) -> Event {
+        Event(event: item)
+    }
+
+    func mapListEventToEvent(_ items: [ListEventsQuery.Data.ListEvent.Item]) -> [Event] {
+        items.map { Event(event: $0) }
     }
     
-    private func mapToEvent(_ items: [ListEventsQuery.Data.ListEvent.Item]) -> [Event] {
-        return items.map {
-            Event(
-                id: $0.id,
-                name: $0.name,
-                venueName: $0.venue.name,
-                description: $0.description
-            )
-        }
-    }
-    
-    private func updateToken(_ token: String?) {
-        self.token = token
-    }
-    
-    func getAllEvents(completion: @escaping (Result<[ListEventsQuery.Data.ListEvent.Item]>) -> Void) {
-        client.fetch(query: ListEventsQuery()) { result in
-            switch result {
-            case .success(let data):
-                let events = data.listEvents?.items?.compactMap { $0 } ?? []
-                completion(.success(events))
-            case .failure(let error):
-                completion(.failure(error))
-            }
-        }
-    }
-    
-    func getEventByID(
-        id: GraphQLID,
-        completion: @escaping (Result<GetEventQuery.Data.GetEvent>) -> Void
-    ) {
-        client.fetch(query: GetEventQuery(id: id)) { result in
-            switch result {
-            case .success(let data):
-                guard let eventObject = data.getEvent else { return }
-                completion(.success(eventObject))
-            case .failure(let error):
-                completion(.failure(error))
-            }
-        }
-    }
-    
-    func getEventsForVenue(
-        venueID: GraphQLID,
-        completion: @escaping (Result<[GetVenueQuery.Data.GetVenue.Event.Item]>) -> Void
-    ) {
-        client.fetch(query: GetVenueQuery(id: venueID)) { result in
-            switch result {
-            case .success(let data):
-                guard let venueObject = data.getVenue else { return }
-                let events = venueObject.events?.items?.compactMap { $0 } ?? []
-                events.forEach { print($0.name) }
-                completion(.success(events))
-            case .failure(let error):
-                completion(.failure(error))
-            }
-        }
+    func updateToken(_ item: ListEventsQuery.Data.ListEvent) {
+        self.token = item.nextToken
     }
 }
 

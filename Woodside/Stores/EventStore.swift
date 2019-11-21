@@ -13,6 +13,8 @@ import Combine
 class EventStore: ObservableObject {
     private let eventService: Events!
     @Published private (set) var events: [Event] = []
+    @Published private (set) var event: Event?
+
     private var cancellable: AnyCancellable?
     
     init(eventService: Events!) {
@@ -32,14 +34,9 @@ extension EventStore {
             .assign(to: \EventStore.events, on: self)
     }
     
-    private func mapToEvent(_ items: [ListEventsQuery.Data.ListEvent.Item]) -> [Event] {
-        return items.map {
-            Event(
-                id: $0.id,
-                name: $0.name,
-                venueName: $0.venue.name,
-                description: $0.description
-            )
-        }
+    func getEvent(byID eventID: String) {
+        cancellable = eventService.getEvent(byID: eventID)
+            .receive(on: DispatchQueue.main)
+            .assign(to: \EventStore.event, on: self)
     }
 }

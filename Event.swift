@@ -14,3 +14,19 @@ struct Event: Identifiable {
     var venueName: String
     var description: String?
 }
+
+extension Event {
+    init(event: GetEventQuery.Data.GetEvent) {
+        self.id = event.id
+        self.name = event.name
+        self.venueName = event.venue.name
+        self.description = event.description
+    }
+    
+    init(event: ListEventsQuery.Data.ListEvent.Item) {
+        self.id = event.id
+        self.name = event.name
+        self.venueName = event.venue.name
+        self.description = event.description
+    }
+}
