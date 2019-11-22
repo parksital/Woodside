@@ -10,5 +10,6 @@ import Foundation
 
 protocol ServiceProtocol: class {
     var client: APIClient! { get }
+    var token: String? { get set }
     init(client: APIClient)
 }
