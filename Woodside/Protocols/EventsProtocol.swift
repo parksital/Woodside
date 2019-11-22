@@ -11,7 +11,6 @@ import AWSAppSync
 import Combine
 
 protocol EventsProtocol: ServiceProtocol {
-    var token: String? { get set }
     func getAllEvents() -> AnyPublisher<[Event], Never>
     func getEvent(byID eventID: GraphQLID) -> AnyPublisher<Event?, Never>
 }
