@@ -15,7 +15,10 @@ struct EventListView: View {
         NavigationView {
             List {
                 ForEach(eventStore.events, id: \.id, content: { event in
-                    NavigationLink(destination: EmptyView(), label: { Text(event.name) })
+                    NavigationLink(
+                        destination: EventDetailView(event: event),
+                        label: { Text(event.name) }
+                    )
                 })
             }.navigationBarTitle("Events")
                 .onAppear(perform: eventStore.getAllEvents)
