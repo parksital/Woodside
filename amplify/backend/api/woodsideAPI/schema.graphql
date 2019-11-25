@@ -9,5 +9,6 @@ type Event @model {
   id: ID!
   name: String!
   venue: Venue! @connection(name: "EventConnection")
+  date: AWSDateTime!
   description: String
 }
