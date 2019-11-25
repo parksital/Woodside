@@ -7,6 +7,7 @@ subscription OnCreateVenue {
       items {
         id
         name
+        date
         description
       }
       nextToken
@@ -22,6 +23,7 @@ subscription OnUpdateVenue {
       items {
         id
         name
+        date
         description
       }
       nextToken
@@ -37,6 +39,7 @@ subscription OnDeleteVenue {
       items {
         id
         name
+        date
         description
       }
       nextToken
@@ -56,6 +59,7 @@ subscription OnCreateEvent {
       }
       description
     }
+    date
     description
   }
 }
@@ -71,6 +75,7 @@ subscription OnUpdateEvent {
       }
       description
     }
+    date
     description
   }
 }
@@ -86,6 +91,7 @@ subscription OnDeleteEvent {
       }
       description
     }
+    date
     description
   }
 }

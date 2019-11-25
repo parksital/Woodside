@@ -7,6 +7,7 @@ mutation CreateVenue($input: CreateVenueInput!) {
       items {
         id
         name
+        date
         description
       }
       nextToken
@@ -22,6 +23,7 @@ mutation UpdateVenue($input: UpdateVenueInput!) {
       items {
         id
         name
+        date
         description
       }
       nextToken
@@ -37,6 +39,7 @@ mutation DeleteVenue($input: DeleteVenueInput!) {
       items {
         id
         name
+        date
         description
       }
       nextToken
@@ -56,6 +59,7 @@ mutation CreateEvent($input: CreateEventInput!) {
       }
       description
     }
+    date
     description
   }
 }
@@ -71,6 +75,7 @@ mutation UpdateEvent($input: UpdateEventInput!) {
       }
       description
     }
+    date
     description
   }
 }
@@ -86,6 +91,7 @@ mutation DeleteEvent($input: DeleteEventInput!) {
       }
       description
     }
+    date
     description
   }
 }
