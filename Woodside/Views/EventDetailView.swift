@@ -8,21 +8,44 @@
 
 import SwiftUI
 
+struct EventKeyInfoView: View {
+    var eventName: String
+    var venueName: String
+    var date: String
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 10.0, content: {
+            Text(eventName)
+                .fontWeight(.heavy)
+                .font(.title)
+            
+            Text(venueName)
+                .fontWeight(.bold)
+                .font(.body)
+            
+            Text(date)
+                .fontWeight(.black)
+                .font(.footnote)
+        })
+    }
+}
+
 struct EventDetailView: View {
     var event: Event
 
     var body: some View {
         VStack(alignment: .leading, spacing: 10.0, content: {
-            Text(event.name)
-                .fontWeight(.heavy)
-                .font(.title)
-
-            Text(event.venueName)
-                .fontWeight(.bold)
-                .font(.body)
+            // Some header image
+            EventKeyInfoView(
+                eventName: event.name,
+                venueName: event.venueName,
+                date: ""
+            )
 
             event.description.map { Text($0) }?.fontWeight(.regular)
                 .font(.callout)
+            
+            Spacer()
         })
     }
 }
