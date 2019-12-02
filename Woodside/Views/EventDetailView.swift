@@ -13,16 +13,16 @@ struct EventDetailView: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 10.0, content: {
-            Text(event.name)
-                .fontWeight(.heavy)
-                .font(.title)
-
-            Text(event.venueName)
-                .fontWeight(.bold)
-                .font(.body)
+            // Some header image
+            EventKeyInfoView(
+                eventName: event.name,
+                venueName: event.venueName,
+                date: event.date 
+            )
 
             event.description.map { Text($0) }?.fontWeight(.regular)
                 .font(.callout)
+            Spacer()
         })
     }
 }
@@ -33,6 +33,7 @@ struct EventDetailView_Previews: PreviewProvider {
             id: UUID().uuidString,
             name: "Billionaire Girls Club",
             venueName: "ABE Club & Lounge",
+            date: "25/01/1990",
             description: "Hottest monday in town"
             )
         )

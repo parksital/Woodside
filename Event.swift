@@ -12,7 +12,7 @@ struct Event: Identifiable {
     var id: String
     var name: String
     var venueName: String
-    var date: String?
+    var date: String
     var description: String?
 }
 
@@ -21,6 +21,7 @@ extension Event: Decodable {
         case id
         case name
         case venue
+        case date
         case description
         
         enum VenueKeys: String, CodingKey {
@@ -30,11 +31,12 @@ extension Event: Decodable {
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        let venueContainer = try decoder.container(keyedBy: CodingKeys.VenueKeys.self)
+        let venueContainer = try container.nestedContainer(keyedBy: CodingKeys.VenueKeys.self, forKey: .venue)
         
         id = try container.decode(String.self, forKey: .id)
         name = try container.decode(String.self, forKey: .name)
         venueName = try venueContainer.decode(String.self, forKey: .venueName)
+        date = try container.decode(String.self, forKey: .date)
         description = try container.decodeIfPresent(String.self, forKey: .description)
     }
 }
