@@ -12,21 +12,29 @@ struct Event: Identifiable {
     var id: String
     var name: String
     var venueName: String
+    var date: String?
     var description: String?
 }
 
-extension Event {
-    init(event: GetEventQuery.Data.GetEvent) {
-        self.id = event.id
-        self.name = event.name
-        self.venueName = event.venue.name
-        self.description = event.description
+extension Event: Decodable {
+    enum CodingKeys: CodingKey {
+        case id
+        case name
+        case venue
+        case description
+        
+        enum VenueKeys: String, CodingKey {
+            case venueName = "name"
+        }
     }
     
-    init(event: ListEventsQuery.Data.ListEvent.Item) {
-        self.id = event.id
-        self.name = event.name
-        self.venueName = event.venue.name
-        self.description = event.description
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let venueContainer = try decoder.container(keyedBy: CodingKeys.VenueKeys.self)
+        
+        id = try container.decode(String.self, forKey: .id)
+        name = try container.decode(String.self, forKey: .name)
+        venueName = try venueContainer.decode(String.self, forKey: .venueName)
+        description = try container.decodeIfPresent(String.self, forKey: .description)
     }
 }

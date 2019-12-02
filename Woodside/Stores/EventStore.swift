@@ -11,13 +11,11 @@ import AWSAppSync
 import Combine
 
 class EventStore: ObservableObject {
-    private let eventService: EventsProtocol!
+    private let eventService: EventService!
     @Published private (set) var events: [Event] = []
     @Published private (set) var event: Event?
-
     private var cancellable: AnyCancellable?
-    
-    init(eventService: EventsProtocol!) {
+    init(eventService: EventService!) {
         self.eventService = eventService
     }
     
