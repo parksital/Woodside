@@ -8,28 +8,6 @@
 
 import SwiftUI
 
-struct EventKeyInfoView: View {
-    var eventName: String
-    var venueName: String
-    var date: String
-
-    var body: some View {
-        VStack(alignment: .leading, spacing: 10.0, content: {
-            Text(eventName)
-                .fontWeight(.heavy)
-                .font(.title)
-            
-            Text(venueName)
-                .fontWeight(.bold)
-                .font(.body)
-            
-            Text(date)
-                .fontWeight(.black)
-                .font(.footnote)
-        })
-    }
-}
-
 struct EventDetailView: View {
     var event: Event
 
@@ -39,12 +17,11 @@ struct EventDetailView: View {
             EventKeyInfoView(
                 eventName: event.name,
                 venueName: event.venueName,
-                date: ""
+                date: event.date 
             )
 
             event.description.map { Text($0) }?.fontWeight(.regular)
                 .font(.callout)
-            
             Spacer()
         })
     }
@@ -56,6 +33,7 @@ struct EventDetailView_Previews: PreviewProvider {
             id: UUID().uuidString,
             name: "Billionaire Girls Club",
             venueName: "ABE Club & Lounge",
+            date: "25/01/1990",
             description: "Hottest monday in town"
             )
         )
