@@ -33,7 +33,7 @@ extension EventStore {
     }
     
     func getEvent(byID eventID: String) {
-        cancellable = eventService.getEvent(byID: eventID)
+        cancellable = eventService.getEventByID(eventID)
             .receive(on: DispatchQueue.main)
             .assign(to: \EventStore.event, on: self)
     }
