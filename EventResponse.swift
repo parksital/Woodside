@@ -40,3 +40,15 @@ extension EventResponse: Decodable {
         description = try container.decodeIfPresent(String.self, forKey: .description)
     }
 }
+
+extension EventResponse {
+    func getEvent(dateFormatting: (Date) -> String) -> Event {
+        return Event(
+            id: self.id,
+            name: self.name,
+            venueName: self.venueName,
+            date: dateFormatting(self.date),
+            description: self.description
+        )
+    }
+}

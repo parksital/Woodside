@@ -14,7 +14,7 @@ class EventStore: ObservableObject {
     private let eventService: EventService!
     @Published private (set) var events: [Event] = []
     @Published private (set) var event: Event?
-    private let displayFormatter: DateFormatter = {
+    private let formatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateStyle = .short
         formatter.timeStyle = .short
@@ -34,9 +34,8 @@ class EventStore: ObservableObject {
 extension EventStore {
     func getAllEvents() {
         cancellable = eventService.getAllEvents()
-            .map { $0.compactMap {
-                self.mapEventResponse($0, dateFormatting: self.displayFormatter.string(from:))
-                }
+            .map {
+                $0.compactMap { $0.getEvent(dateFormatting: self.formatter.string(from:)) }
         }
         .receive(on: DispatchQueue.main)
         .assign(to: \EventStore.events, on: self)
@@ -44,22 +43,8 @@ extension EventStore {
     
     func getEvent(byID eventID: String) {
         cancellable = eventService.getEventByID(eventID)
-            .map {
-                self.mapEventResponse($0, dateFormatting: self.displayFormatter.string(from:))
-        }
+            .map { $0?.getEvent(dateFormatting: self.formatter.string(from:)) }
         .receive(on: DispatchQueue.main)
         .assign(to: \EventStore.event, on: self)
-    }
-}
-private extension EventStore {
-    func mapEventResponse(_ eventResponse: EventResponse?, dateFormatting: (Date) -> String) -> Event? {
-        guard let response = eventResponse else { return nil }
-        return Event(
-            id: response.id,
-            name: response.name,
-            venueName: response.venueName,
-            date: dateFormatting(response.date),
-            description: response.description
-        )
     }
 }
