@@ -17,7 +17,7 @@ struct EventDetailView: View {
             EventKeyInfoView(
                 eventName: event.name,
                 venueName: event.venueName,
-                date: event.date 
+                date: event.date
             )
 
             event.description.map { Text($0) }?.fontWeight(.regular)
