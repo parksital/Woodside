@@ -31,7 +31,7 @@ final class EventService: ServiceProtocol {
 }
 
 extension EventService {
-    func getAllEvents() -> AnyPublisher<[Event], Never> {
+    func getAllEvents() -> AnyPublisher<[EventResponse], Never> {
         return getAllElements(query: ListEventsQuery(limit: 20, nextToken: token))
             .compactMap {$0.listEvents }
             .handleEvents(receiveOutput: updateToken(_:))
@@ -39,7 +39,7 @@ extension EventService {
             .map { $0.map { $0.jsonObject } }
             .filter { JSONSerialization.isValidJSONObject($0) }
             .tryMap { try JSONSerialization.data(withJSONObject: $0, options: .prettyPrinted) }
-            .decode(type: [Event].self, decoder: decoder)
+            .decode(type: [EventResponse].self, decoder: decoder)
             .handleEvents(receiveCompletion: { completion in
                 switch completion {
                 case .finished: print("finished fetching events")
@@ -51,12 +51,12 @@ extension EventService {
             .eraseToAnyPublisher()
     }
     
-    func getEventByID(_ eventID: String) -> AnyPublisher<Event?, Never> {
+    func getEventByID(_ eventID: String) -> AnyPublisher<EventResponse?, Never> {
         return getByID(query: GetEventQuery(id: eventID))
             .compactMap { $0.getEvent?.jsonObject }
             .filter { JSONSerialization.isValidJSONObject($0) }
             .tryMap { try JSONSerialization.data(withJSONObject: $0, options: .prettyPrinted) }
-            .decode(type: Event?.self, decoder: decoder)
+            .decode(type: EventResponse?.self, decoder: decoder)
             .handleEvents(receiveCompletion: { completion in
                 switch completion {
                 case .finished: print("finished fetching event")

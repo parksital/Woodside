@@ -1,5 +1,5 @@
 //
-//  Event.swift
+//  EventResponse.swift
 //  Woodside
 //
 //  Created by Parvin Sital on 18/11/2019.
@@ -8,15 +8,15 @@
 
 import Foundation
 
-struct Event: Identifiable {
+struct EventResponse: Identifiable {
     var id: String
     var name: String
     var venueName: String
-    var date: String
+    var date: Date
     var description: String?
 }
 
-extension Event: Decodable {
+extension EventResponse: Decodable {
     enum CodingKeys: CodingKey {
         case id
         case name
@@ -36,7 +36,7 @@ extension Event: Decodable {
         id = try container.decode(String.self, forKey: .id)
         name = try container.decode(String.self, forKey: .name)
         venueName = try venueContainer.decode(String.self, forKey: .venueName)
-        date = try container.decode(String.self, forKey: .date)
+        date = try container.decode(Date.self, forKey: .date)
         description = try container.decodeIfPresent(String.self, forKey: .description)
     }
 }
