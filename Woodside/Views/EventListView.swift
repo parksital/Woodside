@@ -21,7 +21,6 @@ struct EventListView: View {
                     )
                 })
             }.navigationBarTitle("Events")
-                .onAppear(perform: eventStore.getAllEvents)
         }
     }
 }

@@ -20,31 +20,56 @@ class EventStore: ObservableObject {
         formatter.timeStyle = .short
         return formatter
     }()
-    private var cancellable: AnyCancellable?
+
+    private var cancellables: Set<AnyCancellable> = .init()
+
     init(eventService: EventService!) {
         self.eventService = eventService
+        load()
     }
     
     deinit {
-        cancellable?.cancel()
-        cancellable = nil
+        cancellables.forEach { $0.cancel() }
+        cancellables.removeAll()
+    }
+}
+
+private extension EventStore {
+    func load() {
+        getAllEvents()
+        observeEventCreation()
     }
 }
 
 extension EventStore {
     func getAllEvents() {
-        cancellable = eventService.getAllEvents()
+        eventService.getAllEvents()
             .map {
                 $0.compactMap { $0.getEvent(dateFormatting: self.formatter.string(from:)) }
         }
         .receive(on: DispatchQueue.main)
         .assign(to: \EventStore.events, on: self)
+        .store(in: &self.cancellables)
     }
     
     func getEvent(byID eventID: String) {
-        cancellable = eventService.getEventByID(eventID)
+        eventService.getEventByID(eventID)
             .map { $0?.getEvent(dateFormatting: self.formatter.string(from:)) }
         .receive(on: DispatchQueue.main)
         .assign(to: \EventStore.event, on: self)
+        .store(in: &self.cancellables)
+    }
+    
+    func observeEventCreation() {
+        eventService.observeEventCreation()
+            .compactMap { $0?.getEvent(dateFormatting: self.formatter.string(from:)) }
+            .reduce(self.events) { (acc: [Event], value) -> [Event] in
+                var output = acc
+                output.append(value)
+                return output
+        }
+        .receive(on: DispatchQueue.main)
+        .assign(to: \EventStore.events, on: self)
+        .store(in: &self.cancellables)
     }
 }

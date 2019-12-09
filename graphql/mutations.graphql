@@ -1,6 +1,9 @@
 # this is an auto generated file. This will be overwritten
-mutation CreateVenue($input: CreateVenueInput!) {
-  createVenue(input: $input) {
+mutation CreateVenue(
+  $input: CreateVenueInput!
+  $condition: ModelVenueConditionInput
+) {
+  createVenue(input: $input, condition: $condition) {
     id
     name
     events {
@@ -15,8 +18,11 @@ mutation CreateVenue($input: CreateVenueInput!) {
     description
   }
 }
-mutation UpdateVenue($input: UpdateVenueInput!) {
-  updateVenue(input: $input) {
+mutation UpdateVenue(
+  $input: UpdateVenueInput!
+  $condition: ModelVenueConditionInput
+) {
+  updateVenue(input: $input, condition: $condition) {
     id
     name
     events {
@@ -31,8 +37,11 @@ mutation UpdateVenue($input: UpdateVenueInput!) {
     description
   }
 }
-mutation DeleteVenue($input: DeleteVenueInput!) {
-  deleteVenue(input: $input) {
+mutation DeleteVenue(
+  $input: DeleteVenueInput!
+  $condition: ModelVenueConditionInput
+) {
+  deleteVenue(input: $input, condition: $condition) {
     id
     name
     events {
@@ -47,10 +56,14 @@ mutation DeleteVenue($input: DeleteVenueInput!) {
     description
   }
 }
-mutation CreateEvent($input: CreateEventInput!) {
-  createEvent(input: $input) {
+mutation CreateEvent(
+  $input: CreateEventInput!
+  $condition: ModelEventConditionInput
+) {
+  createEvent(input: $input, condition: $condition) {
     id
     name
+    date
     venue {
       id
       name
@@ -59,14 +72,17 @@ mutation CreateEvent($input: CreateEventInput!) {
       }
       description
     }
-    date
     description
   }
 }
-mutation UpdateEvent($input: UpdateEventInput!) {
-  updateEvent(input: $input) {
+mutation UpdateEvent(
+  $input: UpdateEventInput!
+  $condition: ModelEventConditionInput
+) {
+  updateEvent(input: $input, condition: $condition) {
     id
     name
+    date
     venue {
       id
       name
@@ -75,14 +91,17 @@ mutation UpdateEvent($input: UpdateEventInput!) {
       }
       description
     }
-    date
     description
   }
 }
-mutation DeleteEvent($input: DeleteEventInput!) {
-  deleteEvent(input: $input) {
+mutation DeleteEvent(
+  $input: DeleteEventInput!
+  $condition: ModelEventConditionInput
+) {
+  deleteEvent(input: $input, condition: $condition) {
     id
     name
+    date
     venue {
       id
       name
@@ -91,7 +110,6 @@ mutation DeleteEvent($input: DeleteEventInput!) {
       }
       description
     }
-    date
     description
   }
 }

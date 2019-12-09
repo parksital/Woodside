@@ -36,6 +36,7 @@ query GetEvent($id: ID!) {
   getEvent(id: $id) {
     id
     name
+    date
     venue {
       id
       name
@@ -44,7 +45,6 @@ query GetEvent($id: ID!) {
       }
       description
     }
-    date
     description
   }
 }
@@ -57,12 +57,12 @@ query ListEvents(
     items {
       id
       name
+      date
       venue {
         id
         name
         description
       }
-      date
       description
     }
     nextToken

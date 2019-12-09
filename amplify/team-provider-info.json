@@ -19,14 +19,15 @@
     },
     "develop": {
         "awscloudformation": {
-            "AuthRoleName": "woodside-develop-20191022122620-authRole",
-            "UnauthRoleArn": "arn:aws:iam::840692999077:role/woodside-develop-20191022122620-unauthRole",
-            "AuthRoleArn": "arn:aws:iam::840692999077:role/woodside-develop-20191022122620-authRole",
+            "AuthRoleName": "amplify-woodside-develop-174159-authRole",
+            "UnauthRoleArn": "arn:aws:iam::840692999077:role/amplify-woodside-develop-174159-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::840692999077:role/amplify-woodside-develop-174159-authRole",
             "Region": "eu-west-1",
-            "DeploymentBucketName": "woodside-develop-20191022122620-deployment",
-            "UnauthRoleName": "woodside-develop-20191022122620-unauthRole",
-            "StackName": "woodside-develop-20191022122620",
-            "StackId": "arn:aws:cloudformation:eu-west-1:840692999077:stack/woodside-develop-20191022122620/644db430-f4b6-11e9-aad5-0a0c5b3ce4f4"
+            "DeploymentBucketName": "amplify-woodside-develop-174159-deployment",
+            "UnauthRoleName": "amplify-woodside-develop-174159-unauthRole",
+            "StackName": "amplify-woodside-develop-174159",
+            "StackId": "arn:aws:cloudformation:eu-west-1:840692999077:stack/amplify-woodside-develop-174159/60a56c60-1847-11ea-bec0-0224adcab7c8",
+            "AmplifyAppId": "d2acb9ql4mdeq5"
         },
         "categories": {
             "auth": {

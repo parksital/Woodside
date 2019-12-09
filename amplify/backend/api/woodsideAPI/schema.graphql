@@ -1,14 +1,13 @@
-type Venue @model { 
+type Venue @model {
   id: ID!
   name: String!
-  events: [Event]! @connection(name: "EventConnection")
+  events: [Event] @connection(name: "VenueEvents")
   description: String
 }
-
 type Event @model {
   id: ID!
   name: String!
-  venue: Venue! @connection(name: "EventConnection")
   date: AWSDateTime!
+  venue: Venue @connection(name: "VenueEvents")
   description: String
 }

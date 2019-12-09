@@ -66,4 +66,23 @@ extension EventService {
             .replaceError(with: nil)
             .eraseToAnyPublisher()
     }
+    
+    func observeEventCreation() -> AnyPublisher<EventResponse?, Never> {
+        return subscribe(OnCreateEventSubscription())
+            .compactMap { $0.onCreateEvent?.jsonObject }
+            .filter { JSONSerialization.isValidJSONObject($0) }
+            .tryMap { try JSONSerialization.data(withJSONObject: $0, options: .prettyPrinted) }
+            .decode(type: EventResponse?.self, decoder: decoder)
+            .handleEvents(
+                receiveCompletion: { (completion) in
+                    switch completion {
+                    case .failure(let error):
+                        assertionFailure("\(error): " + error.localizedDescription)
+                    case .finished: print("received value")
+                    }
+            }
+        )
+            .replaceError(with: nil)
+            .eraseToAnyPublisher()
+    }
 }

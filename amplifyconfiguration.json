@@ -1,0 +1,24 @@
+{
+    "UserAgent": "aws-amplify-cli/2.0",
+    "Version": "1.0",
+    "api": {
+        "plugins": {
+            "awsAPIPlugin": {
+                "WoodsideAPI": {
+                    "endpointType": "GraphQL",
+                    "endpoint": "https://td4jl54slze4jhkuregauc5xvq.appsync-api.eu-west-1.amazonaws.com/graphql",
+                    "region": "eu-west-1",
+                    "authorizationType": "API_KEY",
+                    "apiKey": "da2-5abwmof6j5d3hg4kwdxfyjqoru"
+                },
+                "woodsideAPI": {
+                    "endpointType": "GraphQL",
+                    "endpoint": "https://kcb3vye6sjh6bpjbv44jgflz7e.appsync-api.eu-west-1.amazonaws.com/graphql",
+                    "region": "eu-west-1",
+                    "authorizationType": "API_KEY",
+                    "apiKey": "da2-x6tqyejobfbarccp3nzqcczqqe"
+                }
+            }
+        }
+    }
+}

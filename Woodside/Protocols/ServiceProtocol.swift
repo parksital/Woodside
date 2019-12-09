@@ -31,6 +31,10 @@ extension ServiceProtocol {
     func getByID(query: ByID) -> Future<ByID.Data, NetworkError> {
         client.fetch(query: query)
     }
+    
+    func subscribe<S: GraphQLSubscription>(_ subscription: S) -> Future<S.Data, Error> {
+        client.subscribe(target: subscription)
+    }
 
     func updateToken(_ item: ListEventsQuery.Data.ListEvent) {
         self.token = item.nextToken

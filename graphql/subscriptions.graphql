@@ -51,6 +51,7 @@ subscription OnCreateEvent {
   onCreateEvent {
     id
     name
+    date
     venue {
       id
       name
@@ -59,7 +60,6 @@ subscription OnCreateEvent {
       }
       description
     }
-    date
     description
   }
 }
@@ -67,6 +67,7 @@ subscription OnUpdateEvent {
   onUpdateEvent {
     id
     name
+    date
     venue {
       id
       name
@@ -75,7 +76,6 @@ subscription OnUpdateEvent {
       }
       description
     }
-    date
     description
   }
 }
@@ -83,6 +83,7 @@ subscription OnDeleteEvent {
   onDeleteEvent {
     id
     name
+    date
     venue {
       id
       name
@@ -91,7 +92,6 @@ subscription OnDeleteEvent {
       }
       description
     }
-    date
     description
   }
 }
