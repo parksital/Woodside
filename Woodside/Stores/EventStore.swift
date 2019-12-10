@@ -34,17 +34,16 @@ class EventStore: ObservableObject {
 extension EventStore {
     func getAllEvents() {
         cancellable = eventService.getAllEvents()
-            .map {
-                $0.compactMap { $0.getEvent(dateFormatting: self.formatter.string(from:)) }
-        }
-        .receive(on: DispatchQueue.main)
-        .assign(to: \EventStore.events, on: self)
+            .map { $0.ascending }
+            .map { $0.compactMap { $0.getEvent(dateFormatting: self.formatter.string(from:)) } }
+            .receive(on: DispatchQueue.main)
+            .assign(to: \EventStore.events, on: self)
     }
     
     func getEvent(byID eventID: String) {
         cancellable = eventService.getEventByID(eventID)
             .map { $0?.getEvent(dateFormatting: self.formatter.string(from:)) }
-        .receive(on: DispatchQueue.main)
-        .assign(to: \EventStore.event, on: self)
+            .receive(on: DispatchQueue.main)
+            .assign(to: \EventStore.event, on: self)
     }
 }

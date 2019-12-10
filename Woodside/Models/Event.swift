@@ -15,3 +15,9 @@ struct Event: Identifiable {
     var date: String
     var description: String?
 }
+
+extension Array where Element == EventResponse {
+    var ascending: [EventResponse] {
+        sorted { $0.date < $1.date }
+    }
+}
