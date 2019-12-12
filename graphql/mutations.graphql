@@ -1,22 +1,115 @@
 # this is an auto generated file. This will be overwritten
-mutation CreateTodo($input: CreateTodoInput!) {
-  createTodo(input: $input) {
+mutation CreateVenue(
+  $input: CreateVenueInput!
+  $condition: ModelVenueConditionInput
+) {
+  createVenue(input: $input, condition: $condition) {
     id
     name
+    events {
+      items {
+        id
+        name
+        date
+        description
+      }
+      nextToken
+    }
     description
   }
 }
-mutation UpdateTodo($input: UpdateTodoInput!) {
-  updateTodo(input: $input) {
+mutation UpdateVenue(
+  $input: UpdateVenueInput!
+  $condition: ModelVenueConditionInput
+) {
+  updateVenue(input: $input, condition: $condition) {
     id
     name
+    events {
+      items {
+        id
+        name
+        date
+        description
+      }
+      nextToken
+    }
     description
   }
 }
-mutation DeleteTodo($input: DeleteTodoInput!) {
-  deleteTodo(input: $input) {
+mutation DeleteVenue(
+  $input: DeleteVenueInput!
+  $condition: ModelVenueConditionInput
+) {
+  deleteVenue(input: $input, condition: $condition) {
     id
     name
+    events {
+      items {
+        id
+        name
+        date
+        description
+      }
+      nextToken
+    }
+    description
+  }
+}
+mutation CreateEvent(
+  $input: CreateEventInput!
+  $condition: ModelEventConditionInput
+) {
+  createEvent(input: $input, condition: $condition) {
+    id
+    name
+    date
+    venue {
+      id
+      name
+      events {
+        nextToken
+      }
+      description
+    }
+    description
+  }
+}
+mutation UpdateEvent(
+  $input: UpdateEventInput!
+  $condition: ModelEventConditionInput
+) {
+  updateEvent(input: $input, condition: $condition) {
+    id
+    name
+    date
+    venue {
+      id
+      name
+      events {
+        nextToken
+      }
+      description
+    }
+    description
+  }
+}
+mutation DeleteEvent(
+  $input: DeleteEventInput!
+  $condition: ModelEventConditionInput
+) {
+  deleteEvent(input: $input, condition: $condition) {
+    id
+    name
+    date
+    venue {
+      id
+      name
+      events {
+        nextToken
+      }
+      description
+    }
     description
   }
 }

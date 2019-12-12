@@ -10,6 +10,15 @@
 		0692937213A4730254020554 /* Pods_WoodsideTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E47C56399D8B076AD7DE67E /* Pods_WoodsideTests.framework */; };
 		A062A090235F42C2002E5C5C /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = A062A08F235F42C2002E5C5C /* awsconfiguration.json */; };
 		A062A092235F42ED002E5C5C /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = A062A091235F42ED002E5C5C /* API.swift */; };
+		A062A09423605FE4002E5C5C /* EventListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A062A09323605FE4002E5C5C /* EventListView.swift */; };
+		A062A09B23609802002E5C5C /* EventService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A062A09A23609802002E5C5C /* EventService.swift */; };
+		A0650AFC2381F5F700B9450A /* EventStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0650AFB2381F5F700B9450A /* EventStore.swift */; };
+		A08AC5F12382D95D007082D3 /* EventResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08AC5F02382D95D007082D3 /* EventResponse.swift */; };
+		A091CC7223955DBC002BBFFB /* EventKeyInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A091CC7123955DBC002BBFFB /* EventKeyInfoView.swift */; };
+		A091CC74239692C1002BBFFB /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = A091CC73239692C1002BBFFB /* Event.swift */; };
+		A0A1FBE823874B33002D6539 /* EventsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A1FBE723874B33002D6539 /* EventsProtocol.swift */; };
+		A0A1FBEA23874DD6002D6539 /* EventDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A1FBE923874DD6002D6539 /* EventDetailView.swift */; };
+		A0A747B4239FD32A008D4152 /* EventCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A747B3239FD32A008D4152 /* EventCellView.swift */; };
 		A0B81528235C6E69001C137B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B81527235C6E69001C137B /* AppDelegate.swift */; };
 		A0B8152A235C6E69001C137B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B81529235C6E69001C137B /* SceneDelegate.swift */; };
 		A0B8152C235C6E69001C137B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B8152B235C6E69001C137B /* ContentView.swift */; };
@@ -18,6 +27,9 @@
 		A0B81534235C6E6A001C137B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0B81532235C6E6A001C137B /* LaunchScreen.storyboard */; };
 		A0B8153F235C6E6A001C137B /* WoodsideTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B8153E235C6E6A001C137B /* WoodsideTests.swift */; };
 		A0B8154A235C6E6A001C137B /* WoodsideUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B81549235C6E6A001C137B /* WoodsideUITests.swift */; };
+		A0E7E35F236897E300A6B743 /* ServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E7E35E236897E300A6B743 /* ServiceProtocol.swift */; };
+		A0FC17CA236B0D7A005AD57D /* AWSClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FC17C9236B0D7A005AD57D /* AWSClient.swift */; };
+		A0FC17CF236B7BB4005AD57D /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FC17CE236B7BB4005AD57D /* NetworkError.swift */; };
 		CDB45876C2A9DF7DF16E03F5 /* Pods_Woodside.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A70B19BC3005AF734D8ED743 /* Pods_Woodside.framework */; };
 		E7BE6EAB047A0C26802FC5E6 /* Pods_WoodsideUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11F75A20782ECA3CDC10EF17 /* Pods_WoodsideUITests.framework */; };
 /* End PBXBuildFile section */
@@ -48,6 +60,15 @@
 		785F60C1FC32550DF03F8445 /* Pods-Woodside.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Woodside.release.xcconfig"; path = "Target Support Files/Pods-Woodside/Pods-Woodside.release.xcconfig"; sourceTree = "<group>"; };
 		A062A08F235F42C2002E5C5C /* awsconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = awsconfiguration.json; sourceTree = SOURCE_ROOT; };
 		A062A091235F42ED002E5C5C /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = SOURCE_ROOT; };
+		A062A09323605FE4002E5C5C /* EventListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListView.swift; sourceTree = "<group>"; };
+		A062A09A23609802002E5C5C /* EventService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventService.swift; sourceTree = "<group>"; };
+		A0650AFB2381F5F700B9450A /* EventStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventStore.swift; sourceTree = "<group>"; };
+		A08AC5F02382D95D007082D3 /* EventResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventResponse.swift; sourceTree = SOURCE_ROOT; };
+		A091CC7123955DBC002BBFFB /* EventKeyInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventKeyInfoView.swift; sourceTree = "<group>"; };
+		A091CC73239692C1002BBFFB /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		A0A1FBE723874B33002D6539 /* EventsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsProtocol.swift; sourceTree = "<group>"; };
+		A0A1FBE923874DD6002D6539 /* EventDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailView.swift; sourceTree = "<group>"; };
+		A0A747B3239FD32A008D4152 /* EventCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCellView.swift; sourceTree = "<group>"; };
 		A0B81524235C6E69001C137B /* Woodside.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Woodside.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0B81527235C6E69001C137B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A0B81529235C6E69001C137B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -62,6 +83,9 @@
 		A0B81545235C6E6A001C137B /* WoodsideUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WoodsideUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0B81549235C6E6A001C137B /* WoodsideUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoodsideUITests.swift; sourceTree = "<group>"; };
 		A0B8154B235C6E6A001C137B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A0E7E35E236897E300A6B743 /* ServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProtocol.swift; sourceTree = "<group>"; };
+		A0FC17C9236B0D7A005AD57D /* AWSClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSClient.swift; sourceTree = "<group>"; };
+		A0FC17CE236B7BB4005AD57D /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		A70B19BC3005AF734D8ED743 /* Pods_Woodside.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Woodside.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0E26E6E4E5DD57FE6C29347 /* Pods-WoodsideUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WoodsideUITests.debug.xcconfig"; path = "Target Support Files/Pods-WoodsideUITests/Pods-WoodsideUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		F15D0107356E0EBDFA1BC298 /* Pods-WoodsideUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WoodsideUITests.release.xcconfig"; path = "Target Support Files/Pods-WoodsideUITests/Pods-WoodsideUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -108,6 +132,52 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		A062A09823606D07002E5C5C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A0B8152B235C6E69001C137B /* ContentView.swift */,
+				A062A09323605FE4002E5C5C /* EventListView.swift */,
+				A0A1FBE923874DD6002D6539 /* EventDetailView.swift */,
+				A091CC7123955DBC002BBFFB /* EventKeyInfoView.swift */,
+				A0A747B3239FD32A008D4152 /* EventCellView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A062A099236097F0002E5C5C /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				A062A09A23609802002E5C5C /* EventService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		A0650AFA2381F5CD00B9450A /* Stores */ = {
+			isa = PBXGroup;
+			children = (
+				A0650AFB2381F5F700B9450A /* EventStore.swift */,
+			);
+			path = Stores;
+			sourceTree = "<group>";
+		};
+		A08AC5EF2382D94A007082D3 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A08AC5F02382D95D007082D3 /* EventResponse.swift */,
+				A091CC73239692C1002BBFFB /* Event.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A0A1FBE623874B17002D6539 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				A0E7E35E236897E300A6B743 /* ServiceProtocol.swift */,
+				A0A1FBE723874B33002D6539 /* EventsProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		A0B8151B235C6E69001C137B = {
 			isa = PBXGroup;
 			children = (
@@ -137,7 +207,13 @@
 				A062A08F235F42C2002E5C5C /* awsconfiguration.json */,
 				A0B81527235C6E69001C137B /* AppDelegate.swift */,
 				A0B81529235C6E69001C137B /* SceneDelegate.swift */,
-				A0B8152B235C6E69001C137B /* ContentView.swift */,
+				A0FC17CD236B7BA6005AD57D /* Errors */,
+				A0FC17C8236B0D53005AD57D /* Network */,
+				A0650AFA2381F5CD00B9450A /* Stores */,
+				A08AC5EF2382D94A007082D3 /* Models */,
+				A0A1FBE623874B17002D6539 /* Protocols */,
+				A062A099236097F0002E5C5C /* Services */,
+				A062A09823606D07002E5C5C /* Views */,
 				A0B8152D235C6E6A001C137B /* Assets.xcassets */,
 				A0B81532235C6E6A001C137B /* LaunchScreen.storyboard */,
 				A0B81535235C6E6A001C137B /* Info.plist */,
@@ -170,6 +246,22 @@
 				A0B8154B235C6E6A001C137B /* Info.plist */,
 			);
 			path = WoodsideUITests;
+			sourceTree = "<group>";
+		};
+		A0FC17C8236B0D53005AD57D /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				A0FC17C9236B0D7A005AD57D /* AWSClient.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		A0FC17CD236B7BA6005AD57D /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				A0FC17CE236B7BB4005AD57D /* NetworkError.swift */,
+			);
+			path = Errors;
 			sourceTree = "<group>";
 		};
 		AE0C11E933E2ACDB2BF24277 /* Frameworks */ = {
@@ -404,10 +496,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A062A09423605FE4002E5C5C /* EventListView.swift in Sources */,
 				A0B81528235C6E69001C137B /* AppDelegate.swift in Sources */,
 				A0B8152A235C6E69001C137B /* SceneDelegate.swift in Sources */,
+				A08AC5F12382D95D007082D3 /* EventResponse.swift in Sources */,
+				A091CC74239692C1002BBFFB /* Event.swift in Sources */,
+				A0E7E35F236897E300A6B743 /* ServiceProtocol.swift in Sources */,
+				A0A1FBEA23874DD6002D6539 /* EventDetailView.swift in Sources */,
+				A0A1FBE823874B33002D6539 /* EventsProtocol.swift in Sources */,
+				A091CC7223955DBC002BBFFB /* EventKeyInfoView.swift in Sources */,
 				A062A092235F42ED002E5C5C /* API.swift in Sources */,
 				A0B8152C235C6E69001C137B /* ContentView.swift in Sources */,
+				A0A747B4239FD32A008D4152 /* EventCellView.swift in Sources */,
+				A0650AFC2381F5F700B9450A /* EventStore.swift in Sources */,
+				A062A09B23609802002E5C5C /* EventService.swift in Sources */,
+				A0FC17CA236B0D7A005AD57D /* AWSClient.swift in Sources */,
+				A0FC17CF236B7BB4005AD57D /* NetworkError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

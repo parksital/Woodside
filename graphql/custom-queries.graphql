@@ -1,0 +1,28 @@
+query ListEventNames(
+  $filter: ModelEventFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listEvents(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      name
+      date
+    }
+    nextToken
+  }
+}
+
+query GetEventsAtVenue($id: ID!) {
+  getVenue(id: $id) {
+    events {
+      items {
+        id
+        name
+        date
+        description
+      }
+      nextToken
+    }
+  }
+}

@@ -1,5 +1,5 @@
 {
-    "AppSyncApiName": "woodsideAPI",
+    "AppSyncApiName": "WoodsideAPI",
     "DynamoDBBillingMode": "PAY_PER_REQUEST",
     "DynamoDBEnableServerSideEncryption": "false"
 }

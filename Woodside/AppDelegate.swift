@@ -7,14 +7,18 @@
 //
 
 import UIKit
+import AWSAppSync
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+    public var awsClient: APIClient!
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+
+        awsClient = AWSClient()
+        
         return true
     }
 
