@@ -1,5 +1,5 @@
 projects:
-  woodsideAPI:
+  WoodsideAPI:
     schemaPath: graphql/schema.json
     includes:
       - graphql/**/*.graphql
