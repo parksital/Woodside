@@ -13,6 +13,7 @@ import Combine
 class EventStore: ObservableObject {
     private let eventService: EventService!
     @Published private (set) var events: [Event] = []
+    @Published private (set) var eventNames: [ListEventNamesQuery.Data.ListEvent.Item] = []
     @Published private (set) var event: Event?
     private let formatter: DateFormatter = {
         let formatter = DateFormatter()
@@ -20,30 +21,31 @@ class EventStore: ObservableObject {
         formatter.timeStyle = .short
         return formatter
     }()
-    private var cancellable: AnyCancellable?
+    private var cancellables: Set<AnyCancellable> = .init()
     init(eventService: EventService!) {
         self.eventService = eventService
+        getEventList()
     }
     
     deinit {
-        cancellable?.cancel()
-        cancellable = nil
+        cancellables.forEach { $0.cancel() }
+        cancellables.removeAll()
     }
 }
 
 extension EventStore {
-    func getAllEvents() {
-        cancellable = eventService.getAllEvents()
-            .map { $0.ascending }
-            .map { $0.compactMap { $0.getEvent(dateFormatting: self.formatter.string(from:)) } }
+    func getEventList() {
+        eventService.getEventNames()
             .receive(on: DispatchQueue.main)
-            .assign(to: \EventStore.events, on: self)
+            .assign(to: \EventStore.eventNames, on: self)
+            .store(in: &cancellables)
     }
-    
+
     func getEvent(byID eventID: String) {
-        cancellable = eventService.getEventByID(eventID)
+        eventService.getEventByID(eventID)
             .map { $0?.getEvent(dateFormatting: self.formatter.string(from:)) }
             .receive(on: DispatchQueue.main)
             .assign(to: \EventStore.event, on: self)
+            .store(in: &cancellables)
     }
 }

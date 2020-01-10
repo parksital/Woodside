@@ -11,7 +11,7 @@ import AWSAppSync
 import Combine
 
 protocol APIClient {
-    func fetch<Q: GraphQLQuery>(query: Q) -> Future<Q.Data, NetworkError>
+    func fetch<Q: GraphQLQuery>(query: Q) -> Future<Q.Data, Error>
 }
 
 class AWSClient: APIClient {
@@ -31,20 +31,20 @@ class AWSClient: APIClient {
         }
     }
 
-    func fetch<Q: GraphQLQuery>(query: Q) -> Future<Q.Data, NetworkError> {
-        return Future<Q.Data, NetworkError> { [weak self] promise in
+    func fetch<Q: GraphQLQuery>(query: Q) -> Future<Q.Data, Error> {
+        return Future<Q.Data, Error> { [weak self] promise in
             self?.appSyncClient.fetch(
                 query: query,
                 cachePolicy: .returnCacheDataAndFetch,
                 queue: .global(qos: .userInitiated)
             ) { (result, error) in
                 guard error == nil else {
-                    promise(.failure(.noData))
+                    promise(.failure(error!))
                     return
                 }
 
                 guard let data = result?.data else {
-                    promise(.failure(.noData))
+                    promise(.failure(NetworkError.noData))
                     return
                 }
 
