@@ -4,7 +4,7 @@ type Venue @model {
   events: [Event]! @connection(name: "VenueEvents")
   description: String
 }
-type Event @model {
+type Event @model @key(name: "ByDate", fields: ["date"], queryField: "EventsByDate") {
   id: ID!
   name: String!
   date: AWSDateTime!

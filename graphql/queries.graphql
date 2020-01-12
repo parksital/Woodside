@@ -68,3 +68,31 @@ query ListEvents(
     nextToken
   }
 }
+query EventsByDate(
+  $date: AWSDateTime
+  $sortDirection: ModelSortDirection
+  $filter: ModelEventFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  EventsByDate(
+    date: $date
+    sortDirection: $sortDirection
+    filter: $filter
+    limit: $limit
+    nextToken: $nextToken
+  ) {
+    items {
+      id
+      name
+      date
+      venue {
+        id
+        name
+        description
+      }
+      description
+    }
+    nextToken
+  }
+}
