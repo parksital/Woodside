@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct EventKeyInfoView: View {
+struct EventDetailMainInfoView: View {
     var eventName: String
     var date: String
 
@@ -28,7 +28,7 @@ struct EventKeyInfoView: View {
 
 struct EventKeyInfoView_Previews: PreviewProvider {
     static var previews: some View {
-        EventKeyInfoView(
+        EventDetailMainInfoView(
             eventName: "Billionaire Girls Club",
             date: "20/02/2016"
         )

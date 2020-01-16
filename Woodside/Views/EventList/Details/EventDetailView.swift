@@ -14,7 +14,7 @@ struct EventDetailView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 10.0, content: {
             // Some header image
-            EventKeyInfoView(
+            EventDetailMainInfoView(
                 eventName: event.name,
                 date: event.date
             )

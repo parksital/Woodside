@@ -14,9 +14,7 @@
 		A062A09B23609802002E5C5C /* EventService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A062A09A23609802002E5C5C /* EventService.swift */; };
 		A0650AFC2381F5F700B9450A /* EventStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0650AFB2381F5F700B9450A /* EventStore.swift */; };
 		A08AC5F12382D95D007082D3 /* EventResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08AC5F02382D95D007082D3 /* EventResponse.swift */; };
-		A091CC7223955DBC002BBFFB /* EventKeyInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A091CC7123955DBC002BBFFB /* EventKeyInfoView.swift */; };
-		A091CC74239692C1002BBFFB /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = A091CC73239692C1002BBFFB /* Event.swift */; };
-		A0A1FBE823874B33002D6539 /* EventsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A1FBE723874B33002D6539 /* EventsProtocol.swift */; };
+		A091CC7223955DBC002BBFFB /* EventDetailMainInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A091CC7123955DBC002BBFFB /* EventDetailMainInfoView.swift */; };
 		A0A1FBEA23874DD6002D6539 /* EventDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A1FBE923874DD6002D6539 /* EventDetailView.swift */; };
 		A0A747B4239FD32A008D4152 /* EventCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A747B3239FD32A008D4152 /* EventCellView.swift */; };
 		A0B81528235C6E69001C137B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B81527235C6E69001C137B /* AppDelegate.swift */; };
@@ -64,9 +62,7 @@
 		A062A09A23609802002E5C5C /* EventService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventService.swift; sourceTree = "<group>"; };
 		A0650AFB2381F5F700B9450A /* EventStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventStore.swift; sourceTree = "<group>"; };
 		A08AC5F02382D95D007082D3 /* EventResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EventResponse.swift; path = /Users/parvinsital/Desktop/Swift/Projects/Woodside/Woodside/Models/EventResponse.swift; sourceTree = "<absolute>"; };
-		A091CC7123955DBC002BBFFB /* EventKeyInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventKeyInfoView.swift; sourceTree = "<group>"; };
-		A091CC73239692C1002BBFFB /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
-		A0A1FBE723874B33002D6539 /* EventsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsProtocol.swift; sourceTree = "<group>"; };
+		A091CC7123955DBC002BBFFB /* EventDetailMainInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailMainInfoView.swift; sourceTree = "<group>"; };
 		A0A1FBE923874DD6002D6539 /* EventDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailView.swift; sourceTree = "<group>"; };
 		A0A747B3239FD32A008D4152 /* EventCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCellView.swift; sourceTree = "<group>"; };
 		A0B81524235C6E69001C137B /* Woodside.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Woodside.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -136,10 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				A0B8152B235C6E69001C137B /* ContentView.swift */,
-				A062A09323605FE4002E5C5C /* EventListView.swift */,
-				A0A1FBE923874DD6002D6539 /* EventDetailView.swift */,
-				A091CC7123955DBC002BBFFB /* EventKeyInfoView.swift */,
-				A0A747B3239FD32A008D4152 /* EventCellView.swift */,
+				A082B77723D101CA0000843F /* EventList */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -160,11 +153,37 @@
 			path = Stores;
 			sourceTree = "<group>";
 		};
+		A082B77723D101CA0000843F /* EventList */ = {
+			isa = PBXGroup;
+			children = (
+				A062A09323605FE4002E5C5C /* EventListView.swift */,
+				A082B77923D102020000843F /* Details */,
+				A082B77823D101F90000843F /* Cells */,
+			);
+			path = EventList;
+			sourceTree = "<group>";
+		};
+		A082B77823D101F90000843F /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				A0A747B3239FD32A008D4152 /* EventCellView.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		A082B77923D102020000843F /* Details */ = {
+			isa = PBXGroup;
+			children = (
+				A0A1FBE923874DD6002D6539 /* EventDetailView.swift */,
+				A091CC7123955DBC002BBFFB /* EventDetailMainInfoView.swift */,
+			);
+			path = Details;
+			sourceTree = "<group>";
+		};
 		A08AC5EF2382D94A007082D3 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				A08AC5F02382D95D007082D3 /* EventResponse.swift */,
-				A091CC73239692C1002BBFFB /* Event.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -173,7 +192,6 @@
 			isa = PBXGroup;
 			children = (
 				A0E7E35E236897E300A6B743 /* ServiceProtocol.swift */,
-				A0A1FBE723874B33002D6539 /* EventsProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -500,11 +518,9 @@
 				A0B81528235C6E69001C137B /* AppDelegate.swift in Sources */,
 				A0B8152A235C6E69001C137B /* SceneDelegate.swift in Sources */,
 				A08AC5F12382D95D007082D3 /* EventResponse.swift in Sources */,
-				A091CC74239692C1002BBFFB /* Event.swift in Sources */,
 				A0E7E35F236897E300A6B743 /* ServiceProtocol.swift in Sources */,
 				A0A1FBEA23874DD6002D6539 /* EventDetailView.swift in Sources */,
-				A0A1FBE823874B33002D6539 /* EventsProtocol.swift in Sources */,
-				A091CC7223955DBC002BBFFB /* EventKeyInfoView.swift in Sources */,
+				A091CC7223955DBC002BBFFB /* EventDetailMainInfoView.swift in Sources */,
 				A062A092235F42ED002E5C5C /* API.swift in Sources */,
 				A0B8152C235C6E69001C137B /* ContentView.swift in Sources */,
 				A0A747B4239FD32A008D4152 /* EventCellView.swift in Sources */,
