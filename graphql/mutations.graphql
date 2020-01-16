@@ -1,77 +1,13 @@
 # this is an auto generated file. This will be overwritten
-mutation CreateVenue(
-  $input: CreateVenueInput!
-  $condition: ModelVenueConditionInput
-) {
-  createVenue(input: $input, condition: $condition) {
-    id
-    name
-    events {
-      items {
-        id
-        name
-        date
-        description
-      }
-      nextToken
-    }
-    description
-  }
-}
-mutation UpdateVenue(
-  $input: UpdateVenueInput!
-  $condition: ModelVenueConditionInput
-) {
-  updateVenue(input: $input, condition: $condition) {
-    id
-    name
-    events {
-      items {
-        id
-        name
-        date
-        description
-      }
-      nextToken
-    }
-    description
-  }
-}
-mutation DeleteVenue(
-  $input: DeleteVenueInput!
-  $condition: ModelVenueConditionInput
-) {
-  deleteVenue(input: $input, condition: $condition) {
-    id
-    name
-    events {
-      items {
-        id
-        name
-        date
-        description
-      }
-      nextToken
-    }
-    description
-  }
-}
 mutation CreateEvent(
   $input: CreateEventInput!
   $condition: ModelEventConditionInput
 ) {
   createEvent(input: $input, condition: $condition) {
     id
+    type
     name
     date
-    venue {
-      id
-      name
-      events {
-        nextToken
-      }
-      description
-    }
     description
   }
 }
@@ -81,16 +17,9 @@ mutation UpdateEvent(
 ) {
   updateEvent(input: $input, condition: $condition) {
     id
+    type
     name
     date
-    venue {
-      id
-      name
-      events {
-        nextToken
-      }
-      description
-    }
     description
   }
 }
@@ -100,16 +29,9 @@ mutation DeleteEvent(
 ) {
   deleteEvent(input: $input, condition: $condition) {
     id
+    type
     name
     date
-    venue {
-      id
-      name
-      events {
-        nextToken
-      }
-      description
-    }
     description
   }
 }

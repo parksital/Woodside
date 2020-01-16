@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct EventCellView: View {
-    var event: Event
+    var event: EventListItemViewModel
     var body: some View {
         VStack(alignment: .leading, spacing: 5.0) {
             NavigationLink(
@@ -28,10 +28,9 @@ struct EventCellView: View {
 
 struct EventCellView_Previews: PreviewProvider {
     static var previews: some View {
-        EventCellView(event: Event(
+        EventCellView(event: EventListItemViewModel(
             id: UUID().uuidString,
             name: "Billionaire Girls Club",
-            venueName: "ABE Club & Lounge",
             date: "25/12/2019",
             description: "Hottest monday in town"
             )

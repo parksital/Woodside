@@ -1,50 +1,10 @@
 # this is an auto generated file. This will be overwritten
-query GetVenue($id: ID!) {
-  getVenue(id: $id) {
-    id
-    name
-    events {
-      items {
-        id
-        name
-        date
-        description
-      }
-      nextToken
-    }
-    description
-  }
-}
-query ListVenues(
-  $filter: ModelVenueFilterInput
-  $limit: Int
-  $nextToken: String
-) {
-  listVenues(filter: $filter, limit: $limit, nextToken: $nextToken) {
-    items {
-      id
-      name
-      events {
-        nextToken
-      }
-      description
-    }
-    nextToken
-  }
-}
 query GetEvent($id: ID!) {
   getEvent(id: $id) {
     id
+    type
     name
     date
-    venue {
-      id
-      name
-      events {
-        nextToken
-      }
-      description
-    }
     description
   }
 }
@@ -56,26 +16,24 @@ query ListEvents(
   listEvents(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
       id
+      type
       name
       date
-      venue {
-        id
-        name
-        description
-      }
       description
     }
     nextToken
   }
 }
 query EventsByDate(
-  $date: AWSDateTime
+  $type: String
+  $date: ModelStringKeyConditionInput
   $sortDirection: ModelSortDirection
   $filter: ModelEventFilterInput
   $limit: Int
   $nextToken: String
 ) {
-  EventsByDate(
+  eventsByDate(
+    type: $type
     date: $date
     sortDirection: $sortDirection
     filter: $filter
@@ -84,13 +42,9 @@ query EventsByDate(
   ) {
     items {
       id
+      type
       name
       date
-      venue {
-        id
-        name
-        description
-      }
       description
     }
     nextToken
