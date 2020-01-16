@@ -12,8 +12,7 @@ import Combine
 
 class EventStore: ObservableObject {
     private let eventService: EventService!
-    @Published private (set) var events: [Event] = []
-    @Published private (set) var eventNames: [ListEventNamesQuery.Data.ListEvent.Item] = []
+    @Published private (set) var events: [EventListItemViewModel] = []
     @Published private (set) var event: Event?
     private let formatter: DateFormatter = {
         let formatter = DateFormatter()
@@ -35,9 +34,9 @@ class EventStore: ObservableObject {
 
 extension EventStore {
     func getEventList() {
-        eventService.getEventNames()
+        eventService.getSortedEvents()
             .receive(on: DispatchQueue.main)
-            .assign(to: \EventStore.eventNames, on: self)
+            .assign(to: \EventStore.events, on: self)
             .store(in: &cancellables)
     }
 

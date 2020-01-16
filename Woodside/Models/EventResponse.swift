@@ -8,6 +8,17 @@
 
 import Foundation
 
+struct EventListItemViewModel: Identifiable {
+    let id: String
+    let name: String
+    let date: String
+    let description: String?
+}
+
+extension EventListItemViewModel: Decodable {}
+
+
+
 struct EventResponse: Identifiable {
     var id: String
     var name: String

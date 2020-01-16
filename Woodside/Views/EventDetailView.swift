@@ -9,14 +9,13 @@
 import SwiftUI
 
 struct EventDetailView: View {
-    var event: Event
+    var event: EventListItemViewModel
 
     var body: some View {
         VStack(alignment: .leading, spacing: 10.0, content: {
             // Some header image
             EventKeyInfoView(
                 eventName: event.name,
-                venueName: event.venueName,
                 date: event.date
             )
 
@@ -29,10 +28,9 @@ struct EventDetailView: View {
 
 struct EventDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        EventDetailView(event: Event(
+        EventDetailView(event: EventListItemViewModel(
             id: UUID().uuidString,
             name: "Billionaire Girls Club",
-            venueName: "ABE Club & Lounge",
             date: "25/01/1990",
             description: "Hottest monday in town"
             )

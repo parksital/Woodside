@@ -1,0 +1,9 @@
+type Event 
+@model
+@key(name: "ByDate", fields: ["type", "date"], queryField: "eventsByDate") {
+  id: ID!
+  type: String
+  name: String!
+  date: AWSDateTime!
+  description: String
+}
