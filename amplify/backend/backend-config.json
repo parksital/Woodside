@@ -1,6 +1,6 @@
 {
 	"api": {
-		"WoodsideAPI": {
+		"woodside": {
 			"service": "AppSync",
 			"providerPlugin": "awscloudformation",
 			"output": {

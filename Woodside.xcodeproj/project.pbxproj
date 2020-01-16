@@ -63,7 +63,7 @@
 		A062A09323605FE4002E5C5C /* EventListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListView.swift; sourceTree = "<group>"; };
 		A062A09A23609802002E5C5C /* EventService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventService.swift; sourceTree = "<group>"; };
 		A0650AFB2381F5F700B9450A /* EventStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventStore.swift; sourceTree = "<group>"; };
-		A08AC5F02382D95D007082D3 /* EventResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventResponse.swift; sourceTree = SOURCE_ROOT; };
+		A08AC5F02382D95D007082D3 /* EventResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EventResponse.swift; path = /Users/parvinsital/Desktop/Swift/Projects/Woodside/Woodside/Models/EventResponse.swift; sourceTree = "<absolute>"; };
 		A091CC7123955DBC002BBFFB /* EventKeyInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventKeyInfoView.swift; sourceTree = "<group>"; };
 		A091CC73239692C1002BBFFB /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		A0A1FBE723874B33002D6539 /* EventsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsProtocol.swift; sourceTree = "<group>"; };

@@ -1,97 +1,28 @@
 # this is an auto generated file. This will be overwritten
-subscription OnCreateVenue {
-  onCreateVenue {
-    id
-    name
-    events {
-      items {
-        id
-        name
-        date
-        description
-      }
-      nextToken
-    }
-    description
-  }
-}
-subscription OnUpdateVenue {
-  onUpdateVenue {
-    id
-    name
-    events {
-      items {
-        id
-        name
-        date
-        description
-      }
-      nextToken
-    }
-    description
-  }
-}
-subscription OnDeleteVenue {
-  onDeleteVenue {
-    id
-    name
-    events {
-      items {
-        id
-        name
-        date
-        description
-      }
-      nextToken
-    }
-    description
-  }
-}
 subscription OnCreateEvent {
   onCreateEvent {
     id
+    type
     name
     date
-    venue {
-      id
-      name
-      events {
-        nextToken
-      }
-      description
-    }
     description
   }
 }
 subscription OnUpdateEvent {
   onUpdateEvent {
     id
+    type
     name
     date
-    venue {
-      id
-      name
-      events {
-        nextToken
-      }
-      description
-    }
     description
   }
 }
 subscription OnDeleteEvent {
   onDeleteEvent {
     id
+    type
     name
     date
-    venue {
-      id
-      name
-      events {
-        nextToken
-      }
-      description
-    }
     description
   }
 }
