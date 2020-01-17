@@ -12,11 +12,11 @@ struct EventListItemViewModel: Identifiable {
     let id: String
     let name: String
     let date: String
+    let venue: String
     let description: String?
 }
 
 extension EventListItemViewModel: Decodable {}
-
 
 
 struct EventResponse: Identifiable {
