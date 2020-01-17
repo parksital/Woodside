@@ -1,4 +1,4 @@
-query EventsVenueNamesByStartDate(
+query ListEventsSummarized(
   $type: String
   $start_date: ModelStringKeyConditionInput
   $sortDirection: ModelSortDirection
