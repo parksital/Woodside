@@ -1,5 +1,5 @@
 //
-//  EventListItemViewModel.swift
+//  EventSummaryViewModel.swift
 //  Woodside
 //
 //  Created by Parvin Sital on 17/01/2020.
