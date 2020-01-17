@@ -1,4 +1,4 @@
-query ListEventsByStartDate(
+query EventsVenueNamesByStartDate(
   $type: String
   $start_date: ModelStringKeyConditionInput
   $sortDirection: ModelSortDirection
@@ -19,10 +19,7 @@ query ListEventsByStartDate(
       type
       name
       venue { name }
-      artists
       start_date
-      end_date
-      description
     }
     nextToken
   }

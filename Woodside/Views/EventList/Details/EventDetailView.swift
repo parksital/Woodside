@@ -18,9 +18,6 @@ struct EventDetailView: View {
                 eventName: event.name,
                 date: event.startDate
             )
-
-            event.description.map { Text($0) }?.fontWeight(.regular)
-                .font(.callout)
             Spacer()
         })
     }
@@ -32,8 +29,7 @@ struct EventDetailView_Previews: PreviewProvider {
             id: UUID().uuidString,
             name: "Billionaire Girls Club",
             startDate: "25/01/1990",
-            venue: "ABE Club & Lounge",
-            description: "Hottest monday in town"
+            venue: "ABE Club & Lounge"
             )
         )
     }

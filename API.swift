@@ -1058,9 +1058,9 @@ public struct ModelVenueFilterInput: GraphQLMapConvertible {
   }
 }
 
-public final class ListEventsByStartDateQuery: GraphQLQuery {
+public final class EventsVenueNamesByStartDateQuery: GraphQLQuery {
   public static let operationString =
-    "query ListEventsByStartDate($type: String, $start_date: ModelStringKeyConditionInput, $sortDirection: ModelSortDirection, $filter: ModelEventFilterInput, $limit: Int, $nextToken: String) {\n  eventsByStartDate(type: $type, start_date: $start_date, sortDirection: $sortDirection, filter: $filter, limit: $limit, nextToken: $nextToken) {\n    __typename\n    items {\n      __typename\n      id\n      type\n      name\n      venue {\n        __typename\n        name\n      }\n      artists\n      start_date\n      end_date\n      description\n    }\n    nextToken\n  }\n}"
+    "query EventsVenueNamesByStartDate($type: String, $start_date: ModelStringKeyConditionInput, $sortDirection: ModelSortDirection, $filter: ModelEventFilterInput, $limit: Int, $nextToken: String) {\n  eventsByStartDate(type: $type, start_date: $start_date, sortDirection: $sortDirection, filter: $filter, limit: $limit, nextToken: $nextToken) {\n    __typename\n    items {\n      __typename\n      id\n      type\n      name\n      venue {\n        __typename\n        name\n      }\n      start_date\n    }\n    nextToken\n  }\n}"
 
   public var type: String?
   public var start_date: ModelStringKeyConditionInput?
@@ -1163,10 +1163,7 @@ public final class ListEventsByStartDateQuery: GraphQLQuery {
           GraphQLField("type", type: .scalar(String.self)),
           GraphQLField("name", type: .nonNull(.scalar(String.self))),
           GraphQLField("venue", type: .nonNull(.object(Venue.selections))),
-          GraphQLField("artists", type: .nonNull(.list(.scalar(String.self)))),
           GraphQLField("start_date", type: .nonNull(.scalar(String.self))),
-          GraphQLField("end_date", type: .nonNull(.scalar(String.self))),
-          GraphQLField("description", type: .scalar(String.self)),
         ]
 
         public var snapshot: Snapshot
@@ -1175,8 +1172,8 @@ public final class ListEventsByStartDateQuery: GraphQLQuery {
           self.snapshot = snapshot
         }
 
-        public init(id: GraphQLID, type: String? = nil, name: String, venue: Venue, artists: [String?], startDate: String, endDate: String, description: String? = nil) {
-          self.init(snapshot: ["__typename": "Event", "id": id, "type": type, "name": name, "venue": venue.snapshot, "artists": artists, "start_date": startDate, "end_date": endDate, "description": description])
+        public init(id: GraphQLID, type: String? = nil, name: String, venue: Venue, startDate: String) {
+          self.init(snapshot: ["__typename": "Event", "id": id, "type": type, "name": name, "venue": venue.snapshot, "start_date": startDate])
         }
 
         public var __typename: String {
@@ -1224,39 +1221,12 @@ public final class ListEventsByStartDateQuery: GraphQLQuery {
           }
         }
 
-        public var artists: [String?] {
-          get {
-            return snapshot["artists"]! as! [String?]
-          }
-          set {
-            snapshot.updateValue(newValue, forKey: "artists")
-          }
-        }
-
         public var startDate: String {
           get {
             return snapshot["start_date"]! as! String
           }
           set {
             snapshot.updateValue(newValue, forKey: "start_date")
-          }
-        }
-
-        public var endDate: String {
-          get {
-            return snapshot["end_date"]! as! String
-          }
-          set {
-            snapshot.updateValue(newValue, forKey: "end_date")
-          }
-        }
-
-        public var description: String? {
-          get {
-            return snapshot["description"] as? String
-          }
-          set {
-            snapshot.updateValue(newValue, forKey: "description")
           }
         }
 

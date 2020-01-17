@@ -13,7 +13,6 @@ struct EventListItemViewModel: Identifiable {
     let name: String
     let startDate: String
     let venue: String
-    let description: String?
 }
 
 extension EventListItemViewModel: Decodable {
@@ -22,7 +21,6 @@ extension EventListItemViewModel: Decodable {
         case name
         case startDate = "start_date"
         case venue
-        case description
         
         enum VenueKeys: CodingKey {
             case name
@@ -36,8 +34,6 @@ extension EventListItemViewModel: Decodable {
         name = try container.decode(String.self, forKey: .name)
         startDate = try container.decode(String.self, forKey: .startDate)
         venue = try venueContainer.decode(String.self, forKey: .name)
-        description = try container.decode(String?.self, forKey: .description)
-
     }
 }
 
