@@ -1,9 +1,9 @@
 //
-//  EventResponse.swift
+//  EventListItemViewModel.swift
 //  Woodside
 //
-//  Created by Parvin Sital on 18/11/2019.
-//  Copyright © 2019 Parvin Sital. All rights reserved.
+//  Created by Parvin Sital on 17/01/2020.
+//  Copyright © 2020 Parvin Sital. All rights reserved.
 //
 
 import Foundation
@@ -12,42 +12,32 @@ struct EventListItemViewModel: Identifiable {
     let id: String
     let name: String
     let date: String
+    let venue: String
     let description: String?
 }
 
-extension EventListItemViewModel: Decodable {}
-
-
-struct EventResponse: Identifiable {
-    var id: String
-    var name: String
-    var venueName: String
-    var date: Date
-    var description: String?
-}
-
-extension EventResponse: Decodable {
+extension EventListItemViewModel: Decodable {
     enum CodingKeys: CodingKey {
         case id
         case name
-        case venue
         case date
+        case venue
         case description
         
-        enum VenueKeys: String, CodingKey {
-            case venueName = "name"
+        enum VenueKeys: CodingKey {
+            case name
         }
     }
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         let venueContainer = try container.nestedContainer(keyedBy: CodingKeys.VenueKeys.self, forKey: .venue)
-        
         id = try container.decode(String.self, forKey: .id)
         name = try container.decode(String.self, forKey: .name)
-        venueName = try venueContainer.decode(String.self, forKey: .venueName)
-        date = try container.decode(Date.self, forKey: .date)
-        description = try container.decodeIfPresent(String.self, forKey: .description)
+        date = try container.decode(String.self, forKey: .date)
+        venue = try venueContainer.decode(String.self, forKey: .name)
+        description = try container.decode(String?.self, forKey: .description)
+
     }
 }
 

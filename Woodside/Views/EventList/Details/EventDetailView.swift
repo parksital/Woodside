@@ -32,6 +32,7 @@ struct EventDetailView_Previews: PreviewProvider {
             id: UUID().uuidString,
             name: "Billionaire Girls Club",
             date: "25/01/1990",
+            venue: "ABE Club & Lounge",
             description: "Hottest monday in town"
             )
         )
