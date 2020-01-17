@@ -46,4 +46,20 @@ extension EventService {
             .replaceError(with: [])
             .eraseToAnyPublisher()
     }
+    
+    func getEventByID(id: String) -> AnyPublisher<EventDetailViewModel?, Never> {
+        return client.fetch(query: GetEventQuery(id: id))
+            .compactMap { $0.getEvent?.jsonObject }
+            .filter { JSONSerialization.isValidJSONObject($0) }
+            .tryMap { try JSONSerialization.data(withJSONObject: $0, options: .prettyPrinted) }
+            .decode(type: EventDetailViewModel?.self, decoder: decoder)
+            .handleEvents(receiveCompletion: { completion in
+                switch completion {
+                case .finished: print("finished fetching single event.")
+                case .failure(let error): assertionFailure(error.localizedDescription)
+                }
+            })
+            .replaceError(with: nil)
+            .eraseToAnyPublisher()
+    }
 }

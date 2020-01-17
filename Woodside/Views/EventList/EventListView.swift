@@ -18,7 +18,6 @@ struct EventListView: View {
                     EventCellView(event: event)
                 })
             }.navigationBarTitle("Events")
-                .onAppear(perform: eventStore.getEventList)
         }
     }
 }
