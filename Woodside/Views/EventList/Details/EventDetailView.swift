@@ -9,23 +9,29 @@
 import SwiftUI
 
 struct EventDetailView: View {
-    var event: EventSummaryViewModel
-
+    @EnvironmentObject var eventStore: EventStore
+    var eventSummary: EventSummaryViewModel
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 10.0, content: {
             // Some header image
-            EventDetailMainInfoView(
-                eventName: event.name,
-                date: event.startDate
+            EventLightDetailView(
+                eventName: eventSummary.name,
+                venue: eventSummary.venue,
+                date: eventSummary.startDate
             )
-            Spacer()
+            
+            eventStore.event.map { EventHeavyDetailView(event: $0) }
         })
+            .onAppear(perform: { [eventStore, eventSummary] in
+                eventStore.getEventByID(id: eventSummary.id)
+            })
     }
 }
 
 struct EventDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        EventDetailView(event: EventSummaryViewModel(
+        EventDetailView(eventSummary: EventSummaryViewModel(
             id: UUID().uuidString,
             name: "Billionaire Girls Club",
             startDate: "25/01/1990",

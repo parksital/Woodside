@@ -12,7 +12,7 @@ struct EventCellView: View {
     var event: EventSummaryViewModel
     var body: some View {
         NavigationLink(
-            destination: EventDetailView(event: event),
+            destination: EventDetailView(eventSummary: event),
             label: {
                 VStack(alignment: .leading, spacing: 0.0) {
                     Text(event.name)

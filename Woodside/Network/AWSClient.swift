@@ -35,7 +35,7 @@ class AWSClient: APIClient {
         return Future<Q.Data, Error> { [weak self] promise in
             self?.appSyncClient.fetch(
                 query: query,
-                cachePolicy: .returnCacheDataAndFetch,
+                cachePolicy: .fetchIgnoringCacheData,
                 queue: .global(qos: .userInitiated)
             ) { (result, error) in
                 guard error == nil else {
