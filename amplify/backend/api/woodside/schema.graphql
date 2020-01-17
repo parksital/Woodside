@@ -1,9 +1,17 @@
+type Venue
+@model { 
+  id: ID!
+  name: String!
+  description: String
+}
+
 type Event 
 @model
 @key(name: "ByDate", fields: ["type", "date"], queryField: "eventsByDate") {
   id: ID!
   type: String
   name: String!
+  venue: Venue! @connection
   date: AWSDateTime!
   description: String
 }
