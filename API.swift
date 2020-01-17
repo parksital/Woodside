@@ -1058,9 +1058,9 @@ public struct ModelVenueFilterInput: GraphQLMapConvertible {
   }
 }
 
-public final class EventsVenueNamesByStartDateQuery: GraphQLQuery {
+public final class ListEventsSummarizedQuery: GraphQLQuery {
   public static let operationString =
-    "query EventsVenueNamesByStartDate($type: String, $start_date: ModelStringKeyConditionInput, $sortDirection: ModelSortDirection, $filter: ModelEventFilterInput, $limit: Int, $nextToken: String) {\n  eventsByStartDate(type: $type, start_date: $start_date, sortDirection: $sortDirection, filter: $filter, limit: $limit, nextToken: $nextToken) {\n    __typename\n    items {\n      __typename\n      id\n      type\n      name\n      venue {\n        __typename\n        name\n      }\n      start_date\n    }\n    nextToken\n  }\n}"
+    "query ListEventsSummarized($type: String, $start_date: ModelStringKeyConditionInput, $sortDirection: ModelSortDirection, $filter: ModelEventFilterInput, $limit: Int, $nextToken: String) {\n  eventsByStartDate(type: $type, start_date: $start_date, sortDirection: $sortDirection, filter: $filter, limit: $limit, nextToken: $nextToken) {\n    __typename\n    items {\n      __typename\n      id\n      type\n      name\n      venue {\n        __typename\n        name\n      }\n      start_date\n    }\n    nextToken\n  }\n}"
 
   public var type: String?
   public var start_date: ModelStringKeyConditionInput?
