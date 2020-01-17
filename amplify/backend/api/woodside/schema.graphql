@@ -13,7 +13,6 @@ type Event
   name: String!
   venue: Venue! @connection
   artists: [String]!
-  date: AWSDateTime!
   start_date: AWSDateTime!
   end_date: AWSDateTime!
   description: String

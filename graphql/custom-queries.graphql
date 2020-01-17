@@ -20,7 +20,6 @@ query ListEventsByStartDate(
       name
       venue { name }
       artists
-      date
       start_date
       end_date
       description

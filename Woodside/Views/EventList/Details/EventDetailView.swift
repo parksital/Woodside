@@ -16,7 +16,7 @@ struct EventDetailView: View {
             // Some header image
             EventDetailMainInfoView(
                 eventName: event.name,
-                date: event.date
+                date: event.startDate
             )
 
             event.description.map { Text($0) }?.fontWeight(.regular)
@@ -31,7 +31,7 @@ struct EventDetailView_Previews: PreviewProvider {
         EventDetailView(event: EventListItemViewModel(
             id: UUID().uuidString,
             name: "Billionaire Girls Club",
-            date: "25/01/1990",
+            startDate: "25/01/1990",
             venue: "ABE Club & Lounge",
             description: "Hottest monday in town"
             )

@@ -43,7 +43,6 @@ mutation CreateEvent(
       description
     }
     artists
-    date
     start_date
     end_date
     description
@@ -63,7 +62,6 @@ mutation UpdateEvent(
       description
     }
     artists
-    date
     start_date
     end_date
     description
@@ -83,7 +81,6 @@ mutation DeleteEvent(
       description
     }
     artists
-    date
     start_date
     end_date
     description

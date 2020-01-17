@@ -11,16 +11,16 @@ import Foundation
 struct EventListItemViewModel: Identifiable {
     let id: String
     let name: String
-    let date: String
+    let startDate: String
     let venue: String
     let description: String?
 }
 
 extension EventListItemViewModel: Decodable {
-    enum CodingKeys: CodingKey {
+    enum CodingKeys: String, CodingKey {
         case id
         case name
-        case date
+        case startDate = "start_date"
         case venue
         case description
         
@@ -34,7 +34,7 @@ extension EventListItemViewModel: Decodable {
         let venueContainer = try container.nestedContainer(keyedBy: CodingKeys.VenueKeys.self, forKey: .venue)
         id = try container.decode(String.self, forKey: .id)
         name = try container.decode(String.self, forKey: .name)
-        date = try container.decode(String.self, forKey: .date)
+        startDate = try container.decode(String.self, forKey: .startDate)
         venue = try venueContainer.decode(String.self, forKey: .name)
         description = try container.decode(String?.self, forKey: .description)
 

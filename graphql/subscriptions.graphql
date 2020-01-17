@@ -31,7 +31,6 @@ subscription OnCreateEvent {
       description
     }
     artists
-    date
     start_date
     end_date
     description
@@ -48,7 +47,6 @@ subscription OnUpdateEvent {
       description
     }
     artists
-    date
     start_date
     end_date
     description
@@ -65,7 +63,6 @@ subscription OnDeleteEvent {
       description
     }
     artists
-    date
     start_date
     end_date
     description

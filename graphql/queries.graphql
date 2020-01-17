@@ -31,7 +31,6 @@ query GetEvent($id: ID!) {
       description
     }
     artists
-    date
     start_date
     end_date
     description
@@ -53,7 +52,6 @@ query ListEvents(
         description
       }
       artists
-      date
       start_date
       end_date
       description
@@ -87,7 +85,6 @@ query EventsByStartDate(
         description
       }
       artists
-      date
       start_date
       end_date
       description
