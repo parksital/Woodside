@@ -30,7 +30,10 @@ subscription OnCreateEvent {
       name
       description
     }
+    artists
     date
+    start_date
+    end_date
     description
   }
 }
@@ -44,7 +47,10 @@ subscription OnUpdateEvent {
       name
       description
     }
+    artists
     date
+    start_date
+    end_date
     description
   }
 }
@@ -58,7 +64,10 @@ subscription OnDeleteEvent {
       name
       description
     }
+    artists
     date
+    start_date
+    end_date
     description
   }
 }

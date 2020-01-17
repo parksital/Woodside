@@ -30,7 +30,10 @@ query GetEvent($id: ID!) {
       name
       description
     }
+    artists
     date
+    start_date
+    end_date
     description
   }
 }
@@ -49,23 +52,26 @@ query ListEvents(
         name
         description
       }
+      artists
       date
+      start_date
+      end_date
       description
     }
     nextToken
   }
 }
-query EventsByDate(
+query EventsByStartDate(
   $type: String
-  $date: ModelStringKeyConditionInput
+  $start_date: ModelStringKeyConditionInput
   $sortDirection: ModelSortDirection
   $filter: ModelEventFilterInput
   $limit: Int
   $nextToken: String
 ) {
-  eventsByDate(
+  eventsByStartDate(
     type: $type
-    date: $date
+    start_date: $start_date
     sortDirection: $sortDirection
     filter: $filter
     limit: $limit
@@ -80,7 +86,10 @@ query EventsByDate(
         name
         description
       }
+      artists
       date
+      start_date
+      end_date
       description
     }
     nextToken

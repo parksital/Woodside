@@ -29,8 +29,8 @@ final class EventService: ServiceProtocol {
 
 extension EventService {
     func getSortedEvents() -> AnyPublisher<[EventListItemViewModel], Never> {
-        return client.fetch(query: ListEventsByDateQuery(type: "Event", sortDirection: .desc, limit: 20, nextToken: token))
-            .compactMap { $0.eventsByDate }
+        return client.fetch(query: ListEventsByStartDateQuery(type: "Event", sortDirection: .desc, limit: 20, nextToken: token))
+            .compactMap { $0.eventsByStartDate }
             .handleEvents(receiveOutput: { self.token = $0.nextToken })
             .compactMap { $0.items?.compactMap { $0 } }
             .map { $0.map { $0.jsonObject } }

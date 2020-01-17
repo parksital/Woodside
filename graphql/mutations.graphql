@@ -42,7 +42,10 @@ mutation CreateEvent(
       name
       description
     }
+    artists
     date
+    start_date
+    end_date
     description
   }
 }
@@ -59,7 +62,10 @@ mutation UpdateEvent(
       name
       description
     }
+    artists
     date
+    start_date
+    end_date
     description
   }
 }
@@ -76,7 +82,10 @@ mutation DeleteEvent(
       name
       description
     }
+    artists
     date
+    start_date
+    end_date
     description
   }
 }

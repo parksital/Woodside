@@ -1,14 +1,14 @@
-query ListEventsByDate(
+query ListEventsByStartDate(
   $type: String
-  $date: ModelStringKeyConditionInput
+  $start_date: ModelStringKeyConditionInput
   $sortDirection: ModelSortDirection
   $filter: ModelEventFilterInput
   $limit: Int
   $nextToken: String
 ) {
-  eventsByDate(
+  eventsByStartDate(
     type: $type
-    date: $date
+    start_date: $start_date
     sortDirection: $sortDirection
     filter: $filter
     limit: $limit
@@ -16,9 +16,13 @@ query ListEventsByDate(
   ) {
     items {
       id
+      type
       name
       venue { name }
+      artists
       date
+      start_date
+      end_date
       description
     }
     nextToken
