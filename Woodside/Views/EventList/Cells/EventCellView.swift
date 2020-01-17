@@ -11,18 +11,19 @@ import SwiftUI
 struct EventCellView: View {
     var event: EventListItemViewModel
     var body: some View {
-        VStack(alignment: .leading, spacing: 5.0) {
-            NavigationLink(
-                destination: EventDetailView(event: event),
-                label: {
+        NavigationLink(
+            destination: EventDetailView(event: event),
+            label: {
+                VStack(alignment: .leading, spacing: 0.0) {
                     Text(event.name)
                         .font(.headline)
                         .foregroundColor(.black)
-            }
-            )
-            Text(event.date)
+                    Text(event.venue)
+                        .font(.subheadline)
+                        .foregroundColor(.black)
+                }
         }
-        .padding()
+        )
     }
 }
 
@@ -32,6 +33,7 @@ struct EventCellView_Previews: PreviewProvider {
             id: UUID().uuidString,
             name: "Billionaire Girls Club",
             date: "25/12/2019",
+            venue: "ABE Club & Lounge",
             description: "Hottest monday in town"
             )
         )

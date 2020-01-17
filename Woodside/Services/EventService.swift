@@ -28,9 +28,8 @@ final class EventService: ServiceProtocol {
 }
 
 extension EventService {
-
     func getSortedEvents() -> AnyPublisher<[EventListItemViewModel], Never> {
-        return client.fetch(query: EventsByDateQuery(type: "Event", sortDirection: .desc, limit: 20, nextToken: token))
+        return client.fetch(query: ListEventsByDateQuery(type: "Event", sortDirection: .desc, limit: 20, nextToken: token))
             .compactMap { $0.eventsByDate }
             .handleEvents(receiveOutput: { self.token = $0.nextToken })
             .compactMap { $0.items?.compactMap { $0 } }
@@ -45,22 +44,6 @@ extension EventService {
                 }
             })
             .replaceError(with: [])
-            .eraseToAnyPublisher()
-    }
-    
-    func getEventByID(_ eventID: String) -> AnyPublisher<EventResponse?, Never> {
-        return client.fetch(query: GetEventQuery(id: eventID))
-            .compactMap { $0.getEvent?.jsonObject }
-            .filter { JSONSerialization.isValidJSONObject($0) }
-            .tryMap { try JSONSerialization.data(withJSONObject: $0, options: .prettyPrinted) }
-            .decode(type: EventResponse?.self, decoder: decoder)
-            .handleEvents(receiveCompletion: { completion in
-                switch completion {
-                case .finished: print("finished fetching event")
-                case .failure(let error): print(error)
-                }
-            })
-            .replaceError(with: nil)
             .eraseToAnyPublisher()
     }
 }

@@ -1,0 +1,26 @@
+query ListEventsByDate(
+  $type: String
+  $date: ModelStringKeyConditionInput
+  $sortDirection: ModelSortDirection
+  $filter: ModelEventFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  eventsByDate(
+    type: $type
+    date: $date
+    sortDirection: $sortDirection
+    filter: $filter
+    limit: $limit
+    nextToken: $nextToken
+  ) {
+    items {
+      id
+      name
+      venue { name }
+      date
+      description
+    }
+    nextToken
+  }
+}

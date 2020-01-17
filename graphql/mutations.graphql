@@ -1,4 +1,34 @@
 # this is an auto generated file. This will be overwritten
+mutation CreateVenue(
+  $input: CreateVenueInput!
+  $condition: ModelVenueConditionInput
+) {
+  createVenue(input: $input, condition: $condition) {
+    id
+    name
+    description
+  }
+}
+mutation UpdateVenue(
+  $input: UpdateVenueInput!
+  $condition: ModelVenueConditionInput
+) {
+  updateVenue(input: $input, condition: $condition) {
+    id
+    name
+    description
+  }
+}
+mutation DeleteVenue(
+  $input: DeleteVenueInput!
+  $condition: ModelVenueConditionInput
+) {
+  deleteVenue(input: $input, condition: $condition) {
+    id
+    name
+    description
+  }
+}
 mutation CreateEvent(
   $input: CreateEventInput!
   $condition: ModelEventConditionInput
@@ -7,6 +37,11 @@ mutation CreateEvent(
     id
     type
     name
+    venue {
+      id
+      name
+      description
+    }
     date
     description
   }
@@ -19,6 +54,11 @@ mutation UpdateEvent(
     id
     type
     name
+    venue {
+      id
+      name
+      description
+    }
     date
     description
   }
@@ -31,6 +71,11 @@ mutation DeleteEvent(
     id
     type
     name
+    venue {
+      id
+      name
+      description
+    }
     date
     description
   }
