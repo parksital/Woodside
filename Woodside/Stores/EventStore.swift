@@ -12,7 +12,7 @@ import Combine
 
 class EventStore: ObservableObject {
     private let eventService: EventService!
-    @Published private (set) var events: [EventListItemViewModel] = []
+    @Published private (set) var events: [EventSummaryViewModel] = []
     private let formatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateStyle = .short

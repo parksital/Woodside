@@ -8,14 +8,14 @@
 
 import Foundation
 
-struct EventListItemViewModel: Identifiable {
+struct EventSummaryViewModel: Identifiable {
     let id: String
     let name: String
     let startDate: String
     let venue: String
 }
 
-extension EventListItemViewModel: Decodable {
+extension EventSummaryViewModel: Decodable {
     enum CodingKeys: String, CodingKey {
         case id
         case name

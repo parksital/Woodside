@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct EventCellView: View {
-    var event: EventListItemViewModel
+    var event: EventSummaryViewModel
     var body: some View {
         NavigationLink(
             destination: EventDetailView(event: event),
@@ -29,7 +29,7 @@ struct EventCellView: View {
 
 struct EventCellView_Previews: PreviewProvider {
     static var previews: some View {
-        EventCellView(event: EventListItemViewModel(
+        EventCellView(event: EventSummaryViewModel(
             id: UUID().uuidString,
             name: "Billionaire Girls Club",
             startDate: "25/12/2019",
