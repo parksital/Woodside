@@ -14,7 +14,7 @@
 		A062A09B23609802002E5C5C /* EventService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A062A09A23609802002E5C5C /* EventService.swift */; };
 		A0650AFC2381F5F700B9450A /* EventStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0650AFB2381F5F700B9450A /* EventStore.swift */; };
 		A091CC7223955DBC002BBFFB /* EventDetailMainInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A091CC7123955DBC002BBFFB /* EventDetailMainInfoView.swift */; };
-		A096A28023D1EE5000D66DD7 /* EventSummaryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A096A27F23D1EE5000D66DD7 /* EventSummaryViewModel.swift */; };
+		A096A28223D213C200D66DD7 /* EventSummaryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A096A28123D213C200D66DD7 /* EventSummaryViewModel.swift */; };
 		A0A1FBEA23874DD6002D6539 /* EventDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A1FBE923874DD6002D6539 /* EventDetailView.swift */; };
 		A0A747B4239FD32A008D4152 /* EventCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A747B3239FD32A008D4152 /* EventCellView.swift */; };
 		A0B81528235C6E69001C137B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B81527235C6E69001C137B /* AppDelegate.swift */; };
@@ -62,7 +62,7 @@
 		A062A09A23609802002E5C5C /* EventService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventService.swift; sourceTree = "<group>"; };
 		A0650AFB2381F5F700B9450A /* EventStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventStore.swift; sourceTree = "<group>"; };
 		A091CC7123955DBC002BBFFB /* EventDetailMainInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailMainInfoView.swift; sourceTree = "<group>"; };
-		A096A27F23D1EE5000D66DD7 /* EventSummaryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventSummaryViewModel.swift; sourceTree = "<group>"; };
+		A096A28123D213C200D66DD7 /* EventSummaryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventSummaryViewModel.swift; sourceTree = "<group>"; };
 		A0A1FBE923874DD6002D6539 /* EventDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailView.swift; sourceTree = "<group>"; };
 		A0A747B3239FD32A008D4152 /* EventCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCellView.swift; sourceTree = "<group>"; };
 		A0B81524235C6E69001C137B /* Woodside.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Woodside.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -183,7 +183,7 @@
 		A08AC5EF2382D94A007082D3 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				A096A27F23D1EE5000D66DD7 /* EventSummaryViewModel.swift */,
+				A096A28123D213C200D66DD7 /* EventSummaryViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -514,7 +514,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A096A28023D1EE5000D66DD7 /* EventSummaryViewModel.swift in Sources */,
 				A062A09423605FE4002E5C5C /* EventListView.swift in Sources */,
 				A0B81528235C6E69001C137B /* AppDelegate.swift in Sources */,
 				A0B8152A235C6E69001C137B /* SceneDelegate.swift in Sources */,
@@ -527,6 +526,7 @@
 				A0650AFC2381F5F700B9450A /* EventStore.swift in Sources */,
 				A062A09B23609802002E5C5C /* EventService.swift in Sources */,
 				A0FC17CA236B0D7A005AD57D /* AWSClient.swift in Sources */,
+				A096A28223D213C200D66DD7 /* EventSummaryViewModel.swift in Sources */,
 				A0FC17CF236B7BB4005AD57D /* NetworkError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
