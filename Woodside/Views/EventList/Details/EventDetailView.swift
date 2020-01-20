@@ -10,19 +10,25 @@ import SwiftUI
 
 struct EventDetailView: View {
     @EnvironmentObject var eventStore: EventStore
+    @State private var modalState: ModalState = .lowered
     var eventSummary: EventSummaryViewModel
     
+    
     var body: some View {
-        VStack(alignment: .leading, spacing: 10.0, content: {
-            // Some header image
-            EventLightDetailView(
-                eventName: eventSummary.name,
-                venue: eventSummary.venue,
-                date: eventSummary.startDate
-            )
+        ZStack {
+            VStack(alignment: .leading, spacing: 10.0, content: {
+                // Some header image
+                EventLightDetailView(
+                    eventName: eventSummary.name,
+                    venue: eventSummary.venue,
+                    date: eventSummary.startDate
+                )
+                eventStore.event.map { EventHeavyDetailView(event: $0) }
+            })
             
-            eventStore.event.map { EventHeavyDetailView(event: $0) }
-        })
+            RSVPView()
+                .modifier(ModalModifier(modalState: modalState))
+        }
             .onAppear(perform: { [eventStore, eventSummary] in
                 eventStore.getEventByID(id: eventSummary.id)
             })
