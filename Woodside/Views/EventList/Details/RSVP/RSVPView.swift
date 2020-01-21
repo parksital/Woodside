@@ -8,25 +8,6 @@
 
 import SwiftUI
 
-struct ButtonModifier: ViewModifier {
-    @State private var titleColor: Color = .white
-    @State private var backgroundColor: Color = .blue
-
-    init(titleColor: Color, backgroundColor: Color) {
-        self.titleColor = titleColor
-        self.backgroundColor = backgroundColor
-    }
-
-    func body(content: Content) -> some View {
-        return content
-            .padding()
-            .background(backgroundColor)
-            .foregroundColor(titleColor)
-            .font(.headline)
-            .cornerRadius(10.0)
-    }
-}
-
 struct RSVPView: View {
     @State private var rsvp: Bool = false
     private var title: String { rsvp ? "See you there!🕺" : "See you there?   " }
