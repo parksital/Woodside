@@ -29,7 +29,7 @@ struct EventDetailView: View {
                     maxHeight: geometry.size.height * 0.8
                 ) {
                     RSVPView()
-                }.edgesIgnoringSafeArea(.all)
+                }.edgesIgnoringSafeArea(.bottom)
             }
         }
         .onAppear(perform: { [eventStore, eventSummary] in
