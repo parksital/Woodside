@@ -16,22 +16,25 @@ struct EventDetailView: View {
     var body: some View {
         GeometryReader { geometry in
             ZStack {
-                VStack(alignment: .leading) {
+                VStack(alignment: .leading, spacing: 10.0) {
                     EventLightDetailView(
-                        eventName: self.eventSummary.name,
                         venue: self.eventSummary.venue,
-                        date: self.eventSummary.startDate
+                        date: self.eventSummary.startDate,
+                        startTime: self.eventStore.event?.startDate,
+                        endTime: self.eventStore.event?.endDate
                     )
                     self.eventStore.event.map { EventHeavyDetailView(event: $0) }
                 }
+                
                 BottomSheetView(
                     isOpen: self.$bottomSheetShown,
                     maxHeight: geometry.size.height * 0.8
                 ) {
                     RSVPView()
-                }.edgesIgnoringSafeArea(.bottom)
+                }
+                .edgesIgnoringSafeArea(.bottom)
             }
-        }
+        }.navigationBarTitle(self.eventSummary.name)
         .onAppear(perform: { [eventStore, eventSummary] in
             eventStore.getEventByID(id: eventSummary.id)
         })
