@@ -10,22 +10,31 @@ import SwiftUI
 
 struct EventDetailView: View {
     @EnvironmentObject var eventStore: EventStore
+    @State private var bottomSheetShown: Bool = false
     var eventSummary: EventSummaryViewModel
-    
+
     var body: some View {
-        VStack(alignment: .leading, spacing: 10.0, content: {
-            // Some header image
-            EventLightDetailView(
-                eventName: eventSummary.name,
-                venue: eventSummary.venue,
-                date: eventSummary.startDate
-            )
-            
-            eventStore.event.map { EventHeavyDetailView(event: $0) }
+        GeometryReader { geometry in
+            ZStack {
+                VStack(alignment: .leading) {
+                    EventLightDetailView(
+                        eventName: self.eventSummary.name,
+                        venue: self.eventSummary.venue,
+                        date: self.eventSummary.startDate
+                    )
+                    self.eventStore.event.map { EventHeavyDetailView(event: $0) }
+                }
+                BottomSheetView(
+                    isOpen: self.$bottomSheetShown,
+                    maxHeight: geometry.size.height * 0.8
+                ) {
+                    RSVPView()
+                }.edgesIgnoringSafeArea(.bottom)
+            }
+        }
+        .onAppear(perform: { [eventStore, eventSummary] in
+            eventStore.getEventByID(id: eventSummary.id)
         })
-            .onAppear(perform: { [eventStore, eventSummary] in
-                eventStore.getEventByID(id: eventSummary.id)
-            })
     }
 }
 
