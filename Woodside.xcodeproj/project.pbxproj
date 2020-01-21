@@ -29,6 +29,7 @@
 		A0B8153F235C6E6A001C137B /* WoodsideTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B8153E235C6E6A001C137B /* WoodsideTests.swift */; };
 		A0B8154A235C6E6A001C137B /* WoodsideUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B81549235C6E6A001C137B /* WoodsideUITests.swift */; };
 		A0E7E35F236897E300A6B743 /* ServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E7E35E236897E300A6B743 /* ServiceProtocol.swift */; };
+		A0F9CA1C23D75F2200D01E03 /* BottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F9CA1B23D75F2200D01E03 /* BottomSheetView.swift */; };
 		A0FC17CA236B0D7A005AD57D /* AWSClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FC17C9236B0D7A005AD57D /* AWSClient.swift */; };
 		A0FC17CF236B7BB4005AD57D /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FC17CE236B7BB4005AD57D /* NetworkError.swift */; };
 		CDB45876C2A9DF7DF16E03F5 /* Pods_Woodside.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A70B19BC3005AF734D8ED743 /* Pods_Woodside.framework */; };
@@ -86,6 +87,7 @@
 		A0B81549235C6E6A001C137B /* WoodsideUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoodsideUITests.swift; sourceTree = "<group>"; };
 		A0B8154B235C6E6A001C137B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A0E7E35E236897E300A6B743 /* ServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProtocol.swift; sourceTree = "<group>"; };
+		A0F9CA1B23D75F2200D01E03 /* BottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetView.swift; sourceTree = "<group>"; };
 		A0FC17C9236B0D7A005AD57D /* AWSClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSClient.swift; sourceTree = "<group>"; };
 		A0FC17CE236B7BB4005AD57D /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		A70B19BC3005AF734D8ED743 /* Pods_Woodside.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Woodside.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -137,6 +139,7 @@
 		A062A09823606D07002E5C5C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A0F9CA1A23D75F1000D01E03 /* Components */,
 				A0B8152B235C6E69001C137B /* ContentView.swift */,
 				A082B77723D101CA0000843F /* EventList */,
 			);
@@ -281,6 +284,14 @@
 				A0B8154B235C6E6A001C137B /* Info.plist */,
 			);
 			path = WoodsideUITests;
+			sourceTree = "<group>";
+		};
+		A0F9CA1A23D75F1000D01E03 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				A0F9CA1B23D75F2200D01E03 /* BottomSheetView.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		A0FC17C8236B0D53005AD57D /* Network */ = {
@@ -542,6 +553,7 @@
 				A0B8152C235C6E69001C137B /* ContentView.swift in Sources */,
 				A0A747B4239FD32A008D4152 /* EventCellView.swift in Sources */,
 				A0650AFC2381F5F700B9450A /* EventStore.swift in Sources */,
+				A0F9CA1C23D75F2200D01E03 /* BottomSheetView.swift in Sources */,
 				A062A09B23609802002E5C5C /* EventService.swift in Sources */,
 				A0FC17CA236B0D7A005AD57D /* AWSClient.swift in Sources */,
 				A096A28223D213C200D66DD7 /* EventSummaryViewModel.swift in Sources */,
