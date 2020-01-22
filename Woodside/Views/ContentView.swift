@@ -10,19 +10,7 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        TabView(content: {
             EventListView()
-                .tabItem {
-                    Image(systemName: "rectangle.grid.1x2")
-                    Text("Events")
-            }
-            
-            Text("AccountView")
-                .tabItem {
-                    Image(systemName: "person.crop.circle")
-                    Text("Account")
-            }
-        }).edgesIgnoringSafeArea(.top)
     }
 }
 
