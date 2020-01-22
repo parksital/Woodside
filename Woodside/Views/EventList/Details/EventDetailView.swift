@@ -25,10 +25,10 @@ struct EventDetailView: View {
                             endTime: self.eventStore.event?.endDate
                         )
                         self.eventStore.event.map { EventHeavyDetailView(event: $0) }
-                    }
+                        }
                     .padding(.horizontal)
                     .frame(width: geometry.size.width)
-                })
+                }).padding(.bottom, geometry.size.height * 0.1)
                 
                 BottomSheetView(
                     isOpen: self.$bottomSheetShown,
