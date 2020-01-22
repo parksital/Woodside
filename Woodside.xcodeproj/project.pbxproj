@@ -15,6 +15,7 @@
 		A062A09423605FE4002E5C5C /* EventListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A062A09323605FE4002E5C5C /* EventListView.swift */; };
 		A062A09B23609802002E5C5C /* EventService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A062A09A23609802002E5C5C /* EventService.swift */; };
 		A0650AFC2381F5F700B9450A /* EventStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0650AFB2381F5F700B9450A /* EventStore.swift */; };
+		A08F813523D856F100296589 /* DateFormattingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08F813423D856F100296589 /* DateFormattingService.swift */; };
 		A091CC7223955DBC002BBFFB /* EventLightDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A091CC7123955DBC002BBFFB /* EventLightDetailView.swift */; };
 		A096A28223D213C200D66DD7 /* EventSummaryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A096A28123D213C200D66DD7 /* EventSummaryViewModel.swift */; };
 		A0A1FBEA23874DD6002D6539 /* EventDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A1FBE923874DD6002D6539 /* EventDetailView.swift */; };
@@ -68,6 +69,7 @@
 		A062A09323605FE4002E5C5C /* EventListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListView.swift; sourceTree = "<group>"; };
 		A062A09A23609802002E5C5C /* EventService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventService.swift; sourceTree = "<group>"; };
 		A0650AFB2381F5F700B9450A /* EventStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventStore.swift; sourceTree = "<group>"; };
+		A08F813423D856F100296589 /* DateFormattingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormattingService.swift; sourceTree = "<group>"; };
 		A091CC7123955DBC002BBFFB /* EventLightDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventLightDetailView.swift; sourceTree = "<group>"; };
 		A096A28123D213C200D66DD7 /* EventSummaryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventSummaryViewModel.swift; sourceTree = "<group>"; };
 		A0A1FBE923874DD6002D6539 /* EventDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailView.swift; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				A062A09A23609802002E5C5C /* EventService.swift */,
+				A08F813423D856F100296589 /* DateFormattingService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -565,6 +568,7 @@
 				A0B8152C235C6E69001C137B /* ContentView.swift in Sources */,
 				A0A747B4239FD32A008D4152 /* EventCellView.swift in Sources */,
 				A0650AFC2381F5F700B9450A /* EventStore.swift in Sources */,
+				A08F813523D856F100296589 /* DateFormattingService.swift in Sources */,
 				A0F9CA1C23D75F2200D01E03 /* BottomSheetView.swift in Sources */,
 				A062A09B23609802002E5C5C /* EventService.swift in Sources */,
 				A0FC17CA236B0D7A005AD57D /* AWSClient.swift in Sources */,

@@ -12,8 +12,6 @@ struct EventHeavyDetailView: View {
     var event: EventDetailViewModel
     var body: some View {
         VStack(alignment: .leading, spacing: 10.0, content: {
-            Text(event.startDate)
-            Text(event.endDate)
             event.description.map {
                 Text($0)
                     .font(.body)

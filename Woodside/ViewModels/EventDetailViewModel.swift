@@ -15,8 +15,10 @@ extension String: Identifiable {
 struct EventDetailViewModel {
     let id: String
     let name: String
-    let startDate: String
-    let endDate: String
+    let iso8601startDate: Date
+    let iso8601endDate: Date
+    var startDate: String = ""
+    var endDate: String = ""
     let venue: String
     let artists: [String]
     let description: String?
@@ -26,8 +28,8 @@ extension EventDetailViewModel: Decodable {
     enum CodingKeys: String, CodingKey {
         case id
         case name
-        case startDate = "start_date"
-        case endDate = "end_date"
+        case iso8601startDate = "start_date"
+        case iso8601endDate = "end_date"
         case venue
         case artists
         case description
@@ -42,11 +44,30 @@ extension EventDetailViewModel: Decodable {
         let venueContainer = try container.nestedContainer(keyedBy: CodingKeys.VenueKeys.self, forKey: .venue)
         id = try container.decode(String.self, forKey: .id)
         name = try container.decode(String.self, forKey: .name)
-        startDate = try container.decode(String.self, forKey: .startDate)
-        endDate = try container.decode(String.self, forKey: .endDate)
+        iso8601startDate = try container.decode(Date.self, forKey: .iso8601startDate)
+        iso8601endDate = try container.decode(Date.self, forKey: .iso8601endDate)
         venue = try venueContainer.decode(String.self, forKey: .name)
         artists = try container.decode([String].self, forKey: .artists)
         description = try container.decode(String?.self, forKey: .description)
+    }
+}
+
+extension EventDetailViewModel {
+    func getEvent(
+        startDateFormatting: (Date) -> String,
+        endDateFormatting: (Date) -> String
+    ) -> EventDetailViewModel {
+        return EventDetailViewModel(
+            id: self.id,
+            name: self.name,
+            iso8601startDate: self.iso8601startDate,
+            iso8601endDate: self.iso8601endDate,
+            startDate: startDateFormatting(iso8601startDate),
+            endDate: endDateFormatting(iso8601endDate),
+            venue: self.venue,
+            artists: self.artists,
+            description: self.description
+        )
     }
 }
 
@@ -55,8 +76,8 @@ extension EventDetailViewModel {
         EventDetailViewModel(
             id: UUID().uuidString,
             name: "Test Event",
-            startDate: "",
-            endDate: "",
+            iso8601startDate: Date(),
+            iso8601endDate: Date(),
             venue: "Test Venue",
             artists: [],
             description: nil
