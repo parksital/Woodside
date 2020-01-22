@@ -22,10 +22,6 @@ struct EventLightDetailView: View {
                 .font(.headline)
                 .fontWeight(.bold)
 
-            Text(date)
-                .font(.footnote)
-                .fontWeight(.heavy)
-            
             HStack {
                 startTime.map {
                     Text($0)

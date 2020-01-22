@@ -11,19 +11,23 @@ import Combine
 
 final class EventService: ServiceProtocol {
     private (set) var client: APIClient!
+    private (set) var formatter: DateFormattingService!
     private (set) var decoder: JSONDecoder  = {
         let decoder = JSONDecoder()
         decoder.dateDecodingStrategy = .iso8601
         return decoder
     }()
+
     var token: String?
 
     init(client: APIClient) {
         self.client = client
+        self.formatter = DateFormattingService()
     }
 
     init(client: APIClient? = AWSClient()) {
         self.client = client
+        self.formatter = DateFormattingService()
     }
 }
 
@@ -58,7 +62,10 @@ extension EventService {
                 case .finished: print("finished fetching single event.")
                 case .failure(let error): assertionFailure(error.localizedDescription)
                 }
-            })
+            }).map { $0?.getEvent(
+                startDateFormatting: self.formatter.startDate(from:),
+                    endDateFormatting: self.formatter.endDate(from:)
+                )}
             .replaceError(with: nil)
             .eraseToAnyPublisher()
     }

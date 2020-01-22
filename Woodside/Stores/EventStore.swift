@@ -14,12 +14,6 @@ class EventStore: ObservableObject {
     private let eventService: EventService!
     @Published private (set) var event: EventDetailViewModel?
     @Published private (set) var events: [EventSummaryViewModel] = []
-    private let formatter: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.dateStyle = .short
-        formatter.timeStyle = .short
-        return formatter
-    }()
     private var cancellables: Set<AnyCancellable> = .init()
     init(eventService: EventService!) {
         self.eventService = eventService
