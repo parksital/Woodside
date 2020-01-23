@@ -86,3 +86,33 @@ mutation DeleteEvent(
     description
   }
 }
+mutation CreateArtist(
+  $input: CreateArtistInput!
+  $condition: ModelArtistConditionInput
+) {
+  createArtist(input: $input, condition: $condition) {
+    id
+    name
+    description
+  }
+}
+mutation UpdateArtist(
+  $input: UpdateArtistInput!
+  $condition: ModelArtistConditionInput
+) {
+  updateArtist(input: $input, condition: $condition) {
+    id
+    name
+    description
+  }
+}
+mutation DeleteArtist(
+  $input: DeleteArtistInput!
+  $condition: ModelArtistConditionInput
+) {
+  deleteArtist(input: $input, condition: $condition) {
+    id
+    name
+    description
+  }
+}

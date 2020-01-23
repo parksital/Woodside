@@ -5,7 +5,7 @@ type Venue
   description: String
 }
 
-type Event 
+type Event
 @model
 @key(name: "ByStartDate", fields: ["type", "start_date"], queryField: "eventsByStartDate") {
   id: ID!
@@ -15,5 +15,12 @@ type Event
   artists: [String]!
   start_date: AWSDateTime!
   end_date: AWSDateTime!
+  description: String
+}
+
+type Artist
+@model {
+  id: ID!
+  name: String!
   description: String
 }
