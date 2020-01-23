@@ -18,13 +18,13 @@ struct RSVPView: View {
             Text(title)
                 .font(.title)
                 .fontWeight(.heavy)
+            Spacer()
+            Text("Create an account on Woodside to be listed on the guest list and stay up to date with the latest events")
             Button(
                 action: { self.rsvp.toggle() },
                 label: { Text(buttonTitle) }
             ).modifier(ButtonModifier(titleColor: .white, backgroundColor: .blue))
-            Spacer()
         })
-            .padding()
             .frame(
                 minWidth: 0.0,
                 maxWidth: .infinity,
