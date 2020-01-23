@@ -61,12 +61,14 @@ struct EventDetailContainerView: View {
                     maxHeight: geometry.size.height * 0.8
                 ) {
                     RSVPView()
-                }.edgesIgnoringSafeArea(.bottom)
+                }
             }
-        }.navigationBarTitle(self.eventSummary.name)
-            .onAppear(perform: { [eventStore, eventSummary] in
-                eventStore.getEventByID(id: eventSummary.id)
-            })
+        }
+        .edgesIgnoringSafeArea(.bottom)
+        .navigationBarTitle(self.eventSummary.name)
+        .onAppear(perform: { [eventStore, eventSummary] in
+            eventStore.getEventByID(id: eventSummary.id)
+        })
     }
 }
 
