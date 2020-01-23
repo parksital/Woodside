@@ -16,7 +16,7 @@ struct BottomSheetView<Content: View>: View {
     
     @GestureState private var translation: CGFloat = 0
     private var offset: CGFloat {
-        isOpen ? 0 : maxHeight - minHeight
+        isOpen ? 100 : maxHeight - minHeight
     }
 
     init(isOpen: Binding<Bool>, maxHeight: CGFloat, @ViewBuilder content: () -> Content) {
@@ -28,11 +28,12 @@ struct BottomSheetView<Content: View>: View {
     var body: some View {
         GeometryReader { geometry in
             self.content
+                .padding()
                 .frame(width: geometry.size.width, height: self.maxHeight, alignment: .top)
                 .background(Color(.secondarySystemBackground))
                 .cornerRadius(16.0)
                 .frame(height: geometry.size.height, alignment: .bottom)
-                .offset(y: max(self.offset + self.translation, -50))
+                .offset(y: max(self.offset + self.translation, 50))
                 .animation(.interactiveSpring())
                 .shadow(radius: 10.0)
                 .onTapGesture { self.isOpen = true }
