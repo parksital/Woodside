@@ -68,3 +68,24 @@ subscription OnDeleteEvent {
     description
   }
 }
+subscription OnCreateArtist {
+  onCreateArtist {
+    id
+    name
+    description
+  }
+}
+subscription OnUpdateArtist {
+  onUpdateArtist {
+    id
+    name
+    description
+  }
+}
+subscription OnDeleteArtist {
+  onDeleteArtist {
+    id
+    name
+    description
+  }
+}

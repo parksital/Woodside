@@ -59,6 +59,27 @@ query ListEvents(
     nextToken
   }
 }
+query GetArtist($id: ID!) {
+  getArtist(id: $id) {
+    id
+    name
+    description
+  }
+}
+query ListArtists(
+  $filter: ModelArtistFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listArtists(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      name
+      description
+    }
+    nextToken
+  }
+}
 query EventsByStartDate(
   $type: String
   $start_date: ModelStringKeyConditionInput
