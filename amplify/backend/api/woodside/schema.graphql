@@ -5,6 +5,26 @@ type Venue
   description: String
 }
 
+type Artist
+@model {
+  id: ID!
+  name: String!
+  description: String
+  events: [Booking] @connection(keyName: "byArtist", fields: ["id"])
+}
+
+type Booking 
+@model(queries: null) 
+@key(name: "byArtist", fields: ["artistID", "eventID"])
+@key(name: "byEvent", fields: ["eventID", "artistID"])
+{
+  id: ID!
+  artistID: ID!
+  eventID: ID!
+  artist: Artist! @connection(fields: ["artistID"])
+  event: Event! @connection(fields: ["eventID"])
+}
+
 type Event
 @model
 @key(name: "ByStartDate", fields: ["type", "start_date"], queryField: "eventsByStartDate") {
@@ -12,15 +32,8 @@ type Event
   type: String
   name: String!
   venue: Venue! @connection
-  artists: [String]!
+  artists: [Booking] @connection(keyName: "byEvent", fields: ["id"])
   start_date: AWSDateTime!
   end_date: AWSDateTime!
-  description: String
-}
-
-type Artist
-@model {
-  id: ID!
-  name: String!
   description: String
 }

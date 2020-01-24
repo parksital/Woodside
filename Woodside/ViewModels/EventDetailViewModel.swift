@@ -8,8 +8,10 @@
 
 import Foundation
 
-extension String: Identifiable {
-    public var id: String { self }
+struct Artist: Decodable {
+    let id: String
+    let name: String
+    let description: String?
 }
 
 struct EventDetailViewModel {
@@ -20,7 +22,7 @@ struct EventDetailViewModel {
     var startDate: String = ""
     var endDate: String = ""
     let venue: String
-    let artists: [String]
+    let artists: [Artist]
     let description: String?
 }
 
@@ -33,6 +35,14 @@ extension EventDetailViewModel: Decodable {
         case venue
         case artists
         case description
+        
+        enum ModelConnectionKeys: String, CodingKey {
+            case items
+            
+            enum ItemKeys: String, CodingKey {
+                case artist
+            }
+        }
 
         enum VenueKeys: CodingKey {
             case name
@@ -42,13 +52,25 @@ extension EventDetailViewModel: Decodable {
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         let venueContainer = try container.nestedContainer(keyedBy: CodingKeys.VenueKeys.self, forKey: .venue)
+        let modelConnectionContainer = try container.nestedContainer(keyedBy: CodingKeys.ModelConnectionKeys.self, forKey: .artists)
+
         id = try container.decode(String.self, forKey: .id)
         name = try container.decode(String.self, forKey: .name)
         iso8601startDate = try container.decode(Date.self, forKey: .iso8601startDate)
         iso8601endDate = try container.decode(Date.self, forKey: .iso8601endDate)
         venue = try venueContainer.decode(String.self, forKey: .name)
-        artists = try container.decode([String].self, forKey: .artists)
         description = try container.decode(String?.self, forKey: .description)
+
+        var unkeyedItems = try modelConnectionContainer.nestedUnkeyedContainer(forKey: .items)
+        var decodedArtists: [Artist] = []
+        while !unkeyedItems.isAtEnd {
+            let booking = try unkeyedItems.nestedContainer(keyedBy: CodingKeys.ModelConnectionKeys.ItemKeys.self)
+            precondition(booking.contains(.artist))
+            let artist = try booking.decode(Artist.self, forKey: .artist)
+            decodedArtists.append(artist)
+        }
+
+        artists = decodedArtists
     }
 }
 

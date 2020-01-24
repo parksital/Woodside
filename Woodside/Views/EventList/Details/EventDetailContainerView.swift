@@ -50,7 +50,7 @@ struct EventDetailContainerView: View {
                                 .font(.body)
                                 .fontWeight(.regular)
                             
-                            ForEach(event.artists, id: \.id, content: { Text($0) })
+                            ForEach(event.artists, id: \.id, content: { Text($0.name) })
                         }.padding(.horizontal)
                             .frame(width: geometry.size.width)
                     }
