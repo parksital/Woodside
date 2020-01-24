@@ -8,12 +8,6 @@
 
 import Foundation
 
-struct Artist: Decodable {
-    let id: String
-    let name: String
-    let description: String?
-}
-
 struct EventDetailViewModel {
     let id: String
     let name: String
