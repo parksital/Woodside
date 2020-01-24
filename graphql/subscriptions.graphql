@@ -20,6 +20,144 @@ subscription OnDeleteVenue {
     description
   }
 }
+subscription OnCreateArtist {
+  onCreateArtist {
+    id
+    name
+    description
+    events {
+      items {
+        id
+        artistID
+        eventID
+      }
+      nextToken
+    }
+  }
+}
+subscription OnUpdateArtist {
+  onUpdateArtist {
+    id
+    name
+    description
+    events {
+      items {
+        id
+        artistID
+        eventID
+      }
+      nextToken
+    }
+  }
+}
+subscription OnDeleteArtist {
+  onDeleteArtist {
+    id
+    name
+    description
+    events {
+      items {
+        id
+        artistID
+        eventID
+      }
+      nextToken
+    }
+  }
+}
+subscription OnCreateBooking {
+  onCreateBooking {
+    id
+    artistID
+    eventID
+    artist {
+      id
+      name
+      description
+      events {
+        nextToken
+      }
+    }
+    event {
+      id
+      type
+      name
+      venue {
+        id
+        name
+        description
+      }
+      artists {
+        nextToken
+      }
+      start_date
+      end_date
+      description
+    }
+  }
+}
+subscription OnUpdateBooking {
+  onUpdateBooking {
+    id
+    artistID
+    eventID
+    artist {
+      id
+      name
+      description
+      events {
+        nextToken
+      }
+    }
+    event {
+      id
+      type
+      name
+      venue {
+        id
+        name
+        description
+      }
+      artists {
+        nextToken
+      }
+      start_date
+      end_date
+      description
+    }
+  }
+}
+subscription OnDeleteBooking {
+  onDeleteBooking {
+    id
+    artistID
+    eventID
+    artist {
+      id
+      name
+      description
+      events {
+        nextToken
+      }
+    }
+    event {
+      id
+      type
+      name
+      venue {
+        id
+        name
+        description
+      }
+      artists {
+        nextToken
+      }
+      start_date
+      end_date
+      description
+    }
+  }
+}
 subscription OnCreateEvent {
   onCreateEvent {
     id
@@ -30,7 +168,14 @@ subscription OnCreateEvent {
       name
       description
     }
-    artists
+    artists {
+      items {
+        id
+        artistID
+        eventID
+      }
+      nextToken
+    }
     start_date
     end_date
     description
@@ -46,7 +191,14 @@ subscription OnUpdateEvent {
       name
       description
     }
-    artists
+    artists {
+      items {
+        id
+        artistID
+        eventID
+      }
+      nextToken
+    }
     start_date
     end_date
     description
@@ -62,30 +214,16 @@ subscription OnDeleteEvent {
       name
       description
     }
-    artists
+    artists {
+      items {
+        id
+        artistID
+        eventID
+      }
+      nextToken
+    }
     start_date
     end_date
-    description
-  }
-}
-subscription OnCreateArtist {
-  onCreateArtist {
-    id
-    name
-    description
-  }
-}
-subscription OnUpdateArtist {
-  onUpdateArtist {
-    id
-    name
-    description
-  }
-}
-subscription OnDeleteArtist {
-  onDeleteArtist {
-    id
-    name
     description
   }
 }

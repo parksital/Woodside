@@ -52,7 +52,7 @@ extension EventService {
     }
     
     func getEventByID(id: String) -> AnyPublisher<EventDetailViewModel?, Never> {
-        return client.fetch(query: GetEventQuery(id: id))
+        return client.fetch(query: GetEventDetailsQuery.init(id: id))
             .compactMap { $0.getEvent?.jsonObject }
             .filter { JSONSerialization.isValidJSONObject($0) }
             .tryMap { try JSONSerialization.data(withJSONObject: $0, options: .prettyPrinted) }

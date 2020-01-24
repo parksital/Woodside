@@ -29,6 +29,162 @@ mutation DeleteVenue(
     description
   }
 }
+mutation CreateArtist(
+  $input: CreateArtistInput!
+  $condition: ModelArtistConditionInput
+) {
+  createArtist(input: $input, condition: $condition) {
+    id
+    name
+    description
+    events {
+      items {
+        id
+        artistID
+        eventID
+      }
+      nextToken
+    }
+  }
+}
+mutation UpdateArtist(
+  $input: UpdateArtistInput!
+  $condition: ModelArtistConditionInput
+) {
+  updateArtist(input: $input, condition: $condition) {
+    id
+    name
+    description
+    events {
+      items {
+        id
+        artistID
+        eventID
+      }
+      nextToken
+    }
+  }
+}
+mutation DeleteArtist(
+  $input: DeleteArtistInput!
+  $condition: ModelArtistConditionInput
+) {
+  deleteArtist(input: $input, condition: $condition) {
+    id
+    name
+    description
+    events {
+      items {
+        id
+        artistID
+        eventID
+      }
+      nextToken
+    }
+  }
+}
+mutation CreateBooking(
+  $input: CreateBookingInput!
+  $condition: ModelBookingConditionInput
+) {
+  createBooking(input: $input, condition: $condition) {
+    id
+    artistID
+    eventID
+    artist {
+      id
+      name
+      description
+      events {
+        nextToken
+      }
+    }
+    event {
+      id
+      type
+      name
+      venue {
+        id
+        name
+        description
+      }
+      artists {
+        nextToken
+      }
+      start_date
+      end_date
+      description
+    }
+  }
+}
+mutation UpdateBooking(
+  $input: UpdateBookingInput!
+  $condition: ModelBookingConditionInput
+) {
+  updateBooking(input: $input, condition: $condition) {
+    id
+    artistID
+    eventID
+    artist {
+      id
+      name
+      description
+      events {
+        nextToken
+      }
+    }
+    event {
+      id
+      type
+      name
+      venue {
+        id
+        name
+        description
+      }
+      artists {
+        nextToken
+      }
+      start_date
+      end_date
+      description
+    }
+  }
+}
+mutation DeleteBooking(
+  $input: DeleteBookingInput!
+  $condition: ModelBookingConditionInput
+) {
+  deleteBooking(input: $input, condition: $condition) {
+    id
+    artistID
+    eventID
+    artist {
+      id
+      name
+      description
+      events {
+        nextToken
+      }
+    }
+    event {
+      id
+      type
+      name
+      venue {
+        id
+        name
+        description
+      }
+      artists {
+        nextToken
+      }
+      start_date
+      end_date
+      description
+    }
+  }
+}
 mutation CreateEvent(
   $input: CreateEventInput!
   $condition: ModelEventConditionInput
@@ -42,7 +198,14 @@ mutation CreateEvent(
       name
       description
     }
-    artists
+    artists {
+      items {
+        id
+        artistID
+        eventID
+      }
+      nextToken
+    }
     start_date
     end_date
     description
@@ -61,7 +224,14 @@ mutation UpdateEvent(
       name
       description
     }
-    artists
+    artists {
+      items {
+        id
+        artistID
+        eventID
+      }
+      nextToken
+    }
     start_date
     end_date
     description
@@ -80,39 +250,16 @@ mutation DeleteEvent(
       name
       description
     }
-    artists
+    artists {
+      items {
+        id
+        artistID
+        eventID
+      }
+      nextToken
+    }
     start_date
     end_date
-    description
-  }
-}
-mutation CreateArtist(
-  $input: CreateArtistInput!
-  $condition: ModelArtistConditionInput
-) {
-  createArtist(input: $input, condition: $condition) {
-    id
-    name
-    description
-  }
-}
-mutation UpdateArtist(
-  $input: UpdateArtistInput!
-  $condition: ModelArtistConditionInput
-) {
-  updateArtist(input: $input, condition: $condition) {
-    id
-    name
-    description
-  }
-}
-mutation DeleteArtist(
-  $input: DeleteArtistInput!
-  $condition: ModelArtistConditionInput
-) {
-  deleteArtist(input: $input, condition: $condition) {
-    id
-    name
     description
   }
 }

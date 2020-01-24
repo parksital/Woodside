@@ -24,3 +24,23 @@ query ListEventsSummarized(
     nextToken
   }
 }
+query GetEventDetails($id: ID!) {
+  getEvent(id: $id) {
+    id
+    type
+    name
+    venue {
+      id
+      name
+      description
+    }
+    artists { 
+      items { 
+        artist { id name description } 
+      }
+    }
+    start_date
+    end_date
+    description
+  }
+}
