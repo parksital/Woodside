@@ -31,6 +31,7 @@ struct RSVPView: View {
                 minHeight: 0.0,
                 maxHeight: .infinity
         )
+        .padding()
     }
 }
 
