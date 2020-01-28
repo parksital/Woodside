@@ -27,23 +27,12 @@ struct BottomSheetView<Content: View>: View {
         self._isOpen = isOpen
     }
     
-    private struct GradientBackground: View {
-        var body: some View {
-            RoundedRectangle(cornerRadius: 16.0, style: .continuous)
-                .fill(LinearGradient(
-                    gradient: Gradient(colors: [.purple, .pink]),
-                    startPoint: .topLeading,
-                    endPoint: .bottomTrailing
-                ))
-        }
-    }
-    
     var body: some View {
         GeometryReader { geometry in
             self.content
                 .padding(.bottom, self.openOffset + self.slack)
                 .frame(width: geometry.size.width, height: self.maxHeight, alignment: .top)
-                .background(GradientBackground())
+                .background(Color(.secondarySystemBackground))
                 .frame(height: geometry.size.height, alignment: .bottom)
                 .offset(y: max(self.offset + self.translation, self.slack))
                 .animation(.interactiveSpring())
