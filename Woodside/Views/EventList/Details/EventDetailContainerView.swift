@@ -46,16 +46,24 @@ struct EventDetailContainerView: View {
                                 
                                 DateTimes(event: event)
                             })
+
                             Text(event.description ?? "")
                                 .font(.body)
                                 .fontWeight(.regular)
-                            
+
                             ForEach(event.artists, id: \.id, content: { Text($0.name) })
-                        }.padding(.horizontal)
-                            .frame(width: geometry.size.width)
+                        }
+                        .padding(.horizontal)
+                        .frame(
+                            minWidth: 0,
+                            maxWidth: geometry.size.width,
+                            minHeight: 0,
+                            maxHeight: geometry.size.height,
+                            alignment: .topLeading
+                        )
                     }
-                })
-                    .onTapGesture { self.bottomSheetShown = false }
+                    }).onTapGesture { self.bottomSheetShown = false }
+
                 BottomSheetView(
                     isOpen: self.$bottomSheetShown,
                     maxHeight: geometry.size.height * 0.8
@@ -66,9 +74,7 @@ struct EventDetailContainerView: View {
         }
         .edgesIgnoringSafeArea(.bottom)
         .navigationBarTitle(self.eventSummary.name)
-        .onAppear(perform: { [eventStore, eventSummary] in
-            eventStore.getEventByID(id: eventSummary.id)
-        })
+        .onAppear(perform: { self.eventStore.getEventByID(id: self.eventSummary.id) })
     }
 }
 
