@@ -14,12 +14,12 @@ struct RSVPView: View {
     private var buttonTitle: String { rsvp ? "I'm out" : "I'm in!" }
     
     var body: some View {
-        VStack(alignment: .center, spacing: 50, content: {
+        VStack(alignment: .center, spacing: 16.0, content: {
             Text(title)
                 .font(.title)
                 .fontWeight(.heavy)
             Spacer()
-            Text("Create an account on Woodside to be listed on the guest list and stay up to date with the latest events")
+            Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Diam sollicitudin tempor id eu nisl nunc mi ipsum faucibus. Ultrices tincidunt arcu non sodales.")
             Button(
                 action: { self.rsvp.toggle() },
                 label: { Text(buttonTitle) }
@@ -31,6 +31,7 @@ struct RSVPView: View {
                 minHeight: 0.0,
                 maxHeight: .infinity
         )
+        .padding()
     }
 }
 

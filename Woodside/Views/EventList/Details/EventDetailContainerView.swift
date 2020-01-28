@@ -13,7 +13,7 @@ struct EventDetailContainerView: View {
     @State private var bottomSheetShown: Bool = false
     var eventSummary: EventSummaryViewModel
     
-    struct DateTimes: View {
+    private struct DateTimes: View {
         private let separator: String = "-"
         let event: EventDetailViewModel
         var body: some View {
@@ -55,7 +55,7 @@ struct EventDetailContainerView: View {
                             .frame(width: geometry.size.width)
                     }
                 })
-                
+                    .onTapGesture { self.bottomSheetShown = false }
                 BottomSheetView(
                     isOpen: self.$bottomSheetShown,
                     maxHeight: geometry.size.height * 0.8
